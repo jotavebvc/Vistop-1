@@ -27,8 +27,8 @@ const RotaEscolhida = () => {
     return (
         <div className='rota-escolhida'>
             <Container>
-                <span className='rota-escolhida-texto'>Alimentos LTDA</span>
-                <span className='rota-escolhida-endereço'><small>Rua Floriano Peixoto, 471</small></span>
+                <span className='rota-escolhida-texto'>Vistop</span>
+                <span className='rota-escolhida-endereço'><small>Rua dos bobos, 0</small></span>
             </Container>
             <img src={imagemMaps} alt='imagem do google maps' className='imagemMaps' />
             <div className='my-button'>

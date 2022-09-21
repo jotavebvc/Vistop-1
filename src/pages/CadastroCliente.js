@@ -14,6 +14,10 @@ import DialogTaskProcessos from '../components/DialogTaskSend.js';
 
 const url ="https://vistapp-backend.herokuapp.com/clientes"
 
+
+
+
+
 // function createUser () {
 //     axios.post(url, {
 //         "nome": "nome-id",
@@ -104,6 +108,7 @@ const ValidationTextField = styled(TextField, Autocomplete)({
 
 
 
+
 export default class CadastroCliente extends React.Component {
     constructor(props) {
       super(props);
@@ -127,6 +132,10 @@ export default class CadastroCliente extends React.Component {
         valor_contrato: '', 
        };
       };
+
+      componentDidMount() {
+            this.buscarCliente();
+      }
 
       atualizaNome = (e) => {
         this.setState(
@@ -240,8 +249,15 @@ export default class CadastroCliente extends React.Component {
             }
         )
       }
+      atualizaUserId = (e) => {
+        this.setState(
+            {
+                user_id: e.target.value
+            }
+        )
+    }
 
-      submit() {
+      submit = () => {
         const cliente = {
             nome: this.state.nome,
             razao_social: this.state.razao_social,
@@ -286,6 +302,8 @@ export default class CadastroCliente extends React.Component {
             }
         })
       }
+       
+
 
     render() {
     return (
@@ -506,6 +524,7 @@ export default class CadastroCliente extends React.Component {
                                 label="Login"
                                 required
                                 value={this.state.user_id}
+                                onChange={this.atualizaUserId}
                                 margin='normal'
                                 variant="outlined"
                                 id="validation-outlined-input"
@@ -520,13 +539,14 @@ export default class CadastroCliente extends React.Component {
                             />
                     </div>
                     <div className='button-enviar1'>
-                        {/* <DialogTaskProcessos /> */}
-                        <Button className='btn-grad-form'
+                        <DialogTaskProcessos />
+                        {/* <Button className='btn-grad-form'
                             variant="outlined"
                             onClick={this.submit}
+                            type="submit"
                         >
                             ENVIAR
-                        </Button>
+                        </Button> */}
                     </div>
                 </div>
             </Container>

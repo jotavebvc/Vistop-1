@@ -43,60 +43,11 @@ const RotasAbertas= () => {
             <TouchableOpacity onPress={goToRotaEscolhida}>   
                 <div  className='list'>
                     <div className='list-text'>
-                        <span><strong> Alimentos LTDA</strong></span>
+                        <span><strong> Vistop</strong></span>
                         <div className='list-small-text'>
                             <LensIcon fontSize='small' className='icon-small'/>
-                             <span><small>Horário: 07:30h</small></span>
+                             <span><small>Horário: amanhã</small></span>
                              <LensIcon fontSize='small' className='icon-small'/>
-                             <span ><small>                                   Previsão: 03:30h</small></span>
-                        </div>
-                    </div>
-                    <ArrowForwardIosIcon fontSize='small' className='setaIcon'/>
-                </div>
-            </TouchableOpacity>
-        </div>
-        <div>
-            <TouchableOpacity onPress={goToRotaEscolhida}>   
-                <div  className='list'>
-                    <div className='list-text'>
-                        <span><strong> Alimentos LTDA</strong></span>
-                        <div className='list-small-text'>
-                            <LensIcon fontSize='small' className='icon-small'/>
-                             <span><small>Horário: 07:30h</small></span>
-                             <LensIcon fontSize='small' className='icon-small'/>
-                             <span ><small>                                   Previsão: 03:30h</small></span>
-                        </div>
-                    </div>
-                    <ArrowForwardIosIcon fontSize='small' className='setaIcon'/>
-                </div>
-            </TouchableOpacity>
-        </div>
-        <div>
-            <TouchableOpacity onPress={goToRotaEscolhida}>   
-                <div  className='list'>
-                    <div className='list-text'>
-                        <span><strong> Alimentos LTDA</strong></span>
-                        <div className='list-small-text'>
-                            <LensIcon fontSize='small' className='icon-small'/>
-                             <span><small>Horário: 07:30h</small></span>
-                             <LensIcon fontSize='small' className='icon-small'/>
-                             <span ><small>                                   Previsão: 03:30h</small></span>
-                        </div>
-                    </div>
-                    <ArrowForwardIosIcon fontSize='small' className='setaIcon'/>
-                </div>
-            </TouchableOpacity>
-        </div>
-        <div>
-            <TouchableOpacity onPress={goToRotaEscolhida}>   
-                <div  className='list'>
-                    <div className='list-text'>
-                        <span><strong> Alimentos LTDA</strong></span>
-                        <div className='list-small-text'>
-                            <LensIcon fontSize='small' className='icon-small'/>
-                             <span><small>Horário: 07:30h</small></span>
-                             <LensIcon fontSize='small' className='icon-small'/>
-                             <span ><small>                                   Previsão: 03:30h</small></span>
                         </div>
                     </div>
                     <ArrowForwardIosIcon fontSize='small' className='setaIcon'/>

@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import  React from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'Scss/CadastroProduto.scss'
 import { Container, Button } from '@mui/material';
@@ -7,14 +7,18 @@ import SideBar from '../components/SideBar.js';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { styled } from '@mui/material/styles';
+import DialogTaskSend from 'Components/DialogTaskSend.js';
+// import { response } from 'express';
 
 
 
-const CadastroProduto = (props) => {
-    const navigate = useNavigate()
-    const goToHomeAdm = () => {
-        navigate("/home-adm", { replace: true })
-    }
+// const CadastroSetores = (props) => {
+    // const navigate = useNavigate()
+    // const goToHomeAdm = () => {
+    //     navigate("/home-adm", { replace: true })
+    // }
+    const url ="https://vistapp-backend.herokuapp.com/clientes"
+
     const ValidationTextField = styled(TextField)({
         '& input:valid + fieldset': {
             borderColor: 'green',
@@ -29,6 +33,23 @@ const CadastroProduto = (props) => {
             padding: '4px !important', // override inline-style
         },
     });
+
+    export default class CadastroSetores extends React.Component {
+        constructor(props){
+            super(props);
+            this.state ={
+                clientes: [],
+            }
+        }
+
+        componentDidMount() {
+            fetch(url)
+                .then(response => response.json)
+                .then(dados => {
+                    this.setState({clientes: dados})
+                })
+        }
+    render () { 
     return (
         <div className='outside'>
             <div className='Side-bar' >
@@ -80,20 +101,22 @@ const CadastroProduto = (props) => {
 
                     </div>
                     <div className='button-enviar2'>
-                        <Button className='btn-grad-form'
+                    <DialogTaskSend />
+                        {/* <Button className='btn-grad-form'
                             variant="outlined"
-                            onClick={goToHomeAdm}
+                            onClick={<DialogTaskSend />}
                         >
                             ENVIAR
-                        </Button>
+                        </Button> */}
                     </div>
                 </div>
             </Container>
         </div>
     )
 }
+}
 
-export default CadastroProduto;
+// export default CadastroSetores;
 
 const nomeCliente = [
     { label: 'Categoria 1', id: 1 },
