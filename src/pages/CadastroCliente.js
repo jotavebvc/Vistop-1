@@ -12,7 +12,8 @@ import DialogTaskProcessos from '../components/DialogTaskSend.js';
 
 
 
-const url ="https://vistapp-backend.herokuapp.com/clientes"
+const url ="https://vistapp-backend.herokuapp.com/clientes/"
+// const url = "http://localhost:8000/clientes/"
 
 
 
@@ -133,9 +134,9 @@ export default class CadastroCliente extends React.Component {
        };
       };
 
-      componentDidMount() {
-            this.buscarCliente();
-      }
+    //   componentDidMount() {
+    //         this.buscarCliente();
+    //   }
 
       atualizaNome = (e) => {
         this.setState(
@@ -265,6 +266,7 @@ export default class CadastroCliente extends React.Component {
             numero_cnpj: this.state.numero_cnpj,
             bairro: this.state.bairro,
             cidade: this.state.cidade,
+            user_id: this.state.user_id,
             endereco: this.state.endereco,
             endereco_numero: this.state.endereco_numero,
             aliquota_iss: this.state.aliquota_iss,
@@ -277,7 +279,7 @@ export default class CadastroCliente extends React.Component {
             email_operacional: this.state.email_operacional,
         }
         this.cadastrarCliente(cliente);
-        console.log(this.state.nome)
+        console.log(this.state.user_id)
       }
 
       buscarCliente = () => {
@@ -298,7 +300,9 @@ export default class CadastroCliente extends React.Component {
             if(response.ok) {
                 this.buscarCliente();
             }else{
-                alert=("Não foi possível.")
+                response.json().then(payload => {
+                    console.log(payload)
+                })
             }
         })
       }
@@ -372,8 +376,8 @@ export default class CadastroCliente extends React.Component {
                             sx={{ width: '45vh' }}
                             type="date"
                             value={this.state.created_on}
-                            onChange={this.atualizaDataInicioContrato}
-                            required
+                            onChange={this.atualizaCreatedOn}
+                            // required
                             variant="outlined"
                             margin='normal'
                             id="validation-outlined-input"
@@ -532,6 +536,7 @@ export default class CadastroCliente extends React.Component {
                             <ValidationTextField
                                 sx={{ width: '45vh' }}
                                 label="Senha"
+                                type="password"
                                 required
                                 margin='normal'
                                 variant="outlined"
@@ -539,14 +544,14 @@ export default class CadastroCliente extends React.Component {
                             />
                     </div>
                     <div className='button-enviar1'>
-                        <DialogTaskProcessos />
-                        {/* <Button className='btn-grad-form'
+                        {/* <DialogTaskProcessos /> */}
+                        <Button className='btn-grad-form'
                             variant="outlined"
                             onClick={this.submit}
                             type="submit"
                         >
                             ENVIAR
-                        </Button> */}
+                        </Button>
                     </div>
                 </div>
             </Container>

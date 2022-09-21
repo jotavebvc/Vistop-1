@@ -12,7 +12,7 @@ import DialogTaskProcessos from '../components/DialogTaskSend.js';
 
 
 
-const url = "https://vistapp-backend.herokuapp.com/clientes"
+const url = "https://vistapp-backend.herokuapp.com/clientes/"
 
 
 
