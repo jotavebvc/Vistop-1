@@ -1,0 +1,33 @@
+.footer {
+    background: rgb(255, 255, 255);
+   // background: linear-gradient(90deg, rgba(52,200,209,1) 10%, rgba(86,193,204,1) 20%, rgba(41,164,214,0.7931547619047619) 28%, rgba(55,170,207,1) 37%, rgba(53,152,208,1) 48%, rgba(18,108,208,1) 61%, rgba(134,186,68,1) 78%, rgba(0,246,109,1) 100%);
+    // .infoFooter {
+    //     width: 100%;
+    //     background: rgb(255, 255, 255);
+    //     display:flex;
+    //     align-items: center;
+    //     height: 64px;
+    //  //   padding: 0px 24px 0px 505px;
+    //     justify-content: space-around;
+    // }
+    position:absolute;
+    bottom:-10;
+    width:100%;
+    margin-bottom: 0px;
+    margin: auto;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    #mensagemDeAmor {
+    color: red;
+
+    }
+    .logoNumero {   
+        display: flex;
+        flex-direction: row;
+        .numero {
+            display: row;
+            padding-top: 17px;
+        }
+    }
+} 

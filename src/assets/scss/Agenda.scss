@@ -1,0 +1,29 @@
+.minha-agenda {
+    display: flex;
+    color: rgb(255, 255, 255);
+    padding-left: 40px; 
+
+
+    .calendar-sccs {
+        display: flex;
+        justify-content: center;
+
+    }
+}
+.text-agenda {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana,
+        sans-serif;
+    color: rgb(108, 108, 108);
+    padding: 8px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    font-size: 30px;
+}
+
+.text-baixo-agenda {
+    padding-left: 40px;
+    color: rgb(108, 108, 108);
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana,
+        sans-serif;
+}

@@ -1,0 +1,14 @@
+$sidebar-bg-color: rgb(255, 255, 255);
+$sidebar-color: rgb(0, 0, 0);
+$submenu-bg-color: rgb(223, 223, 223);
+$sidebar-width: 255px;
+$sidebar-height: 100%;
+@import "~react-pro-sidebar/dist/scss/styles.scss";
+
+.react-pro-sidebar {
+min-height: 100vh;
+
+}
+// criar alerta quando fechar o dia e um determinado serviço não tiver sido concluido
+//duas formas de controle: somar tudo que foi gasto de produto pelo cliente(somar os gastos de todos os produtos utilizados pelo cliete)- apenas aparece
+//para a gerência e

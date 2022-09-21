@@ -1,0 +1,39 @@
+.outside {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(201, 201, 201);
+    
+    .texto-home-adm {
+        padding-top: 7vh;
+        padding-left: 20vh;
+        font: 'Lucida Sans';
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .graphs {
+        display: flex;
+        position: top;
+        justify-content: space-around;
+    }
+
+    .logo-e-metas {
+        display: flex;
+        justify-content: space-around;
+
+        .metas {
+            .metas-title {
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-size: larger;
+                letter-spacing: 1px;
+                font-weight: 100;
+                color: rgb(120, 120, 120);
+            }
+            .metas-text {
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-weight: 100;
+                color: rgb(120, 120, 120);
+            }
+        }
+    }
+}

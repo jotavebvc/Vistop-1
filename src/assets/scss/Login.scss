@@ -1,0 +1,99 @@
+.card-test {
+    justify-content: center;
+    position: center;
+    display: flex;
+    height: 100%;
+    min-height: 84vh;
+    // background: rgb(214,214,214);
+    // background: linear-gradient(0deg, rgb(238, 238, 238) 13%, rgba(255,255,255,1) 85%);
+
+    .login-form {
+        @media (min-width: 320px) {
+            // background-color: blue;
+        }
+        @media (min-width: 375px) {
+            // background-color: red;
+        }
+        @media (min-width: 425px) {
+            // background-color: green;
+        }
+        @media (min-width: 1023px) {
+            // background-color: grey;
+        }
+        background-color: #ffffff00;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 100px;
+        justify-content: center;
+
+        .loginfont {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 50px;
+            justify-content: center;
+            letter-spacing: 15px;
+            color: gray;
+            padding-bottom: 8px;
+        }
+        .outlined-login-input {
+            width: 280px;
+            padding-bottom: 12px;
+        }
+        .outlined-password-input {
+            width: 280px;
+            padding-bottom: 2px;
+        }
+
+
+
+        .btn-grad1 {background-image: linear-gradient(to right, rgb(66, 172, 136) 0%, #93EDC7  51%, #62c099  100%)}
+        .btn-grad1 {
+            @media (min-width: 1023px) {
+                visibility: hidden;
+            }
+           margin: 10px;
+           padding: 15px 45px;
+           text-align: center;
+           text-transform: uppercase;
+           transition: 0.5s;
+           background-size: 200% auto;
+           color: white;            
+           box-shadow: 0 0 20px #eee;
+           border-radius: 10px;
+           display: block;
+           width: 280px;
+           font-family: 'Segoe UI';
+         }
+
+         .btn-grad1:hover {
+           background-position: right center; /* change the direction of the change here */
+           color: #fff;
+           text-decoration: none;
+         }
+         .btn-grad {background-image: linear-gradient(to right, rgb(66, 172, 136) 0%, #93EDC7  51%, #62c099  100%)}
+         .btn-grad {
+             @media (max-width: 1023px) {
+                 display: none;
+             }
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+            width: 280px;
+            font-family: 'Segoe UI';
+          }
+ 
+          .btn-grad:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
+        
+    }
+}

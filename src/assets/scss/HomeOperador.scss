@@ -1,0 +1,63 @@
+.minhas-rotas {
+    flex-direction: row;
+    display: block;
+    justify-content: space-around;
+    color: rgb(110, 110, 110);
+    letter-spacing: 1px;
+    .image1 { 
+        position: relative;
+        padding: auto;
+        height: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(160, 160, 160, 0.192);
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: larger;
+
+    }
+    .icon {
+        color: rgb(102, 101, 101); 
+        padding: 14px;
+        width: 2em;
+        height: 2em;
+    }
+    .seta {
+        color: rgb(102, 101, 101); 
+    }   
+}   
+
+.minhas-rotas2 {
+    flex-direction: row;
+    display: block;
+    justify-content: space-around;
+    color: rgb(77, 77, 77);
+    color: rgb(110, 110, 110);
+    letter-spacing: 1px;    
+    .image2 { 
+        position: relative;
+        padding: auto;
+        height: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(160, 160, 160, 0.192);
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: larger;
+    }
+    .icon {
+        color: rgb(102, 101, 101); 
+        padding: 13px;
+        width: 2em;
+        height: 2em;
+    }
+    .seta {
+        color: rgb(102, 101, 101); 
+    }
+}   
+
+.logo-focus {
+    display: flex;
+    justify-content: center;
+    padding-top: 175px;
+}
