@@ -43,7 +43,7 @@ const RotasAbertas= () => {
             <TouchableOpacity onPress={goToRotaEscolhida}>   
                 <div  className='list'>
                     <div className='list-text'>
-                        <span><strong> Vistop</strong></span>
+                        <span><strong> KLEBER ANDRADE</strong></span>
                         <div className='list-small-text'>
                             <LensIcon fontSize='small' className='icon-small'/>
                              <span><small>Horário: amanhã</small></span>

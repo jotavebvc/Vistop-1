@@ -72,8 +72,8 @@ const RotaEscolhida = () => {
         <div className='rota-escolhida'>
             <ConsultarNome />
             <Container>
-                <span className='rota-escolhida-texto' >Vistop</span>
-                <span className='rota-escolhida-endereço'><small>Rua dos bobos, 0</small></span>
+                <span className='rota-escolhida-texto' > KLEBER ANDRADE</span>
+                <span className='rota-escolhida-endereço'><small>avenida b manuel, 10211</small></span>
             </Container>
             <img src={imagemMaps} alt='imagem do google maps' className='imagemMaps' />
             <div className='my-button'>
