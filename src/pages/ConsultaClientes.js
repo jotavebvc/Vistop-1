@@ -106,28 +106,26 @@ export default class CadastroCliente extends React.Component {
 
 
     change = () => {
-        // this.setState({
-        //     arraySize: this.state.cliente.findIndex(),
-        // })
+        const cliente = this.state.cliente[this.state.cliente.length -1]
         this.setState({
             nome: this.state.cliente[this.state.cliente.length -1].nome,
             user_id: this.state.cliente[this.state.cliente.length -1].user_id,
-            // razao_social: this.state.cliente.pop().razao_social,
-            // cep: this.state.cliente.pop().cep,
-            // numero_cnpj: this.state.cliente.pop().numero_cnpj,
-            // bairro: this.state.cliente.pop().bairro, 
-            // cidade: this.state.cliente.pop().cidade,
-            // endereco: this.state.cliente.pop().endereco,
-            // endereco_numero: this.state.cliente.pop().endereco_numero,
-            // aliquota_iss: this.state.cliente.slice(-1).aliquota_iss,
-            // valor_contrato: this.state.cliente.slice(-1).valor_contrato,
-            // data_inicio_contrato: this.state.cliente.slice(-1).data_inicio_contrato,
-            // created_on: this.state.cliente.slice(-1).created_on,
-            // valor_contrato: this.state.cliente.slice(-1).valor_contrato,
-            // telefone_financeiro: this.state.cliente.slice(-1).telefone_financeiro,
-            // telefone_operacional: this.state.cliente.slice(-1).telefone_operacional,
-            // email_financeiro: this.state.cliente.slice(-1).email_financeiro,
-            // email_operacional: this.state.cliente.slice(-1).email_operacional,
+            razao_social: cliente.razao_social,
+            cep: cliente.cep,
+            numero_cnpj: cliente.numero_cnpj,
+            bairro: cliente.bairro, 
+            cidade: cliente.cidade,
+            endereco: cliente.endereco,
+            endereco_numero: cliente.endereco_numero,
+            aliquota_iss: cliente.aliquota_iss,
+            valor_contrato: cliente.valor_contrato,
+            data_inicio_contrato: cliente.data_inicio_contrato,
+            created_on: cliente.created_on,
+            valor_contrato: cliente.valor_contrato,
+            telefone_financeiro: cliente.telefone_financeiro,
+            telefone_operacional: cliente.telefone_operacional,
+            email_financeiro: cliente.email_financeiro,
+            email_operacional: cliente.email_operacional,
 
         })
     }
