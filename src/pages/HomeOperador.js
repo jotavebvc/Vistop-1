@@ -1,4 +1,4 @@
-import { React } from 'react';
+import  React  from 'react';
 import { TouchableOpacity } from 'react-native-web'
 import { useNavigate } from 'react-router-dom'
 import 'Scss/HomeOperador.scss';
@@ -7,19 +7,22 @@ import EventIcon from '@material-ui/icons/Event';
 import CommuteIcon from '@material-ui/icons/Commute';
 import focusLogo from 'Images/focusLogo.jpg';
 
+    const url = "https://vistapp-backend.herokuapp.com/clientes/"
 
     const HomeOperador = (props) => {
-    const navigate = useNavigate()
+        const navigate = useNavigate()
 
-    const goToVistorias = () => {
-        navigate("/", { replace: true })
-    }
-    const goToRotasAbertas = () => {
-        navigate("/rotas-abertas", { replace: true })
-    }
-    const goToAgenda = () => {
-        navigate("/agenda", { replace: true })
-    }
+        const goToVistorias = () => {
+            navigate("/", { replace: true })
+        }
+        const goToRotasAbertas = () => {
+            navigate("/rotas-abertas", { replace: true })
+        }
+        const goToAgenda = () => {
+            navigate("/agenda", { replace: true })
+        }
+
+    
 
 
 
