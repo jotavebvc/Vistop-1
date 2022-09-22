@@ -30,10 +30,7 @@ import ConsultaProduto from 'Pages/ConsultaProduto.js';
 import ConsultaFuncionario from 'Pages/ConsultaFuncionario.js';
 import ConsultaVistoria from 'Pages/ConsultaVistoria.js';
 import ConsultaSetores from 'Pages/ConsultaSetores.js';
-
-
-
-
+import ConsultaClientesV2 from 'Pages/ConsultaClientesV2.js';
 
 
 const rootElement = document.getElementById("root");
@@ -73,6 +70,8 @@ ReactDOM.render(
             <Route path="consulta-funcionario" element={<ConsultaFuncionario />} />
             <Route path="consulta-vistoria" element={<ConsultaVistoria />} />
             <Route path="consulta-setores" element={<ConsultaSetores />} />
+            <Route path="consulta-clientes-v2" element={<ConsultaClientesV2 />} />
+            {/* <Route path="consulta-cliente" element={} /> */}
 
 
             {/* <Route path='/google-maps' component={() => {

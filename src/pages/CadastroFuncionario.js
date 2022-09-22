@@ -184,9 +184,17 @@ export default class CadastroFuncionario extends React.Component {
               }
           )
         }      
+        atualizaUserId = (e) => {
+            this.setState(
+                {
+                    user_id: e.target.value
+                }
+            )
+          }    
   
         submit = () => {
           const funcionario = {
+            user_id: this.state.user_id,
             nome: this.state.nome,
             nome_social: this.state.nome_social,
             numero_carteira: this.state.numero_carteira,
@@ -257,7 +265,7 @@ export default class CadastroFuncionario extends React.Component {
                             sx={{ width: '45vh' }}
                             label="Nome social"
                             helperText="Insira o nome que irá aparecer no sistema para o usuário"
-                            required
+                            // required
                             onChange={this.atualizaNomeSocial}
                             value={this.state.nome_social}
                             margin='normal'
@@ -267,7 +275,7 @@ export default class CadastroFuncionario extends React.Component {
                         <ValidationTextField
                             sx={{ width: '45vh' }}
                             label="Nome Completo"
-                            required
+                            // required
                             value={this.state.nome}
                             onChange={this.atualizaNome}
                             margin='normal'
@@ -278,7 +286,7 @@ export default class CadastroFuncionario extends React.Component {
                     <div className='form-small'>
                         <ValidationTextField
                             label="N° da carteira de trabalho"
-                            required
+                            // required
                             value={this.state.numero_carteira}
                             onChange={this.atualizaNumeroCarteira}
                             type="number"
@@ -291,14 +299,14 @@ export default class CadastroFuncionario extends React.Component {
                             type="date"
                             value={this.state.data_nascimento}
                             onChange={this.atualizaDataNascimento}
-                            required
+                            // required
                             variant="outlined"
                             margin='normal'
                             id="validation-outlined-input"
                         />
                         <ValidationTextField
                             helperText="Data de Ingresso"
-                            required
+                            // required
                             value={this.state.data_ingresso}
                             onChange={this.atualizaDataIngresso}
                             type="date"
@@ -308,7 +316,7 @@ export default class CadastroFuncionario extends React.Component {
                         />
                         <ValidationTextField
                             label="Número do PIS"
-                            required
+                            // required
                             value={this.state.numero_pis}
                             onChange={this.atualizaNumeroPis}
                             type="number"
@@ -320,7 +328,7 @@ export default class CadastroFuncionario extends React.Component {
                     <div className='form-small'>
                         <ValidationTextField
                             label="RG"
-                            required
+                            // required
                             value={this.state.rg}
                             onChange={this.atualizaRg}
                             type="number"
@@ -330,7 +338,7 @@ export default class CadastroFuncionario extends React.Component {
                         />
                         <ValidationTextField
                             label="CPF"
-                            required
+                            // required
                             value={this.state.cpf}
                             onChange={this.atualizaCPF}
                             variant="outlined"
@@ -343,7 +351,7 @@ export default class CadastroFuncionario extends React.Component {
 
                         <ValidationTextField
                             label="N° do Título de Eleitor"
-                            required
+                            // required
                             type="number"
                             value={this.state.titulo_numero}
                             onChange={this.atualizaTituloNumero}
@@ -393,7 +401,7 @@ export default class CadastroFuncionario extends React.Component {
                             type="date"
                             value={this.state.data_vencimento_cnh}
                             onChange={this.atualizaDataVencimentoCnh}
-                            required
+                            // required
                             variant="outlined"
                             margin='normal'
                             id="validation-outlined-input"
@@ -403,7 +411,7 @@ export default class CadastroFuncionario extends React.Component {
                             type="date"
                             value={this.state.data_vencimento_aso}
                             onChange={this.atualizaDataVencimentoAso}
-                            required
+                            // required
                             variant="outlined"
                             margin='normal'
                             id="validation-outlined-input"
@@ -412,7 +420,9 @@ export default class CadastroFuncionario extends React.Component {
                     <div className='form-small-login'>
                         <ValidationTextField
                             label="Login"
-                            required
+                            // required
+                            value={this.state.user_id}
+                            onChange={this.atualizaUserId}
                             variant="outlined"
                             margin='normal'
                             id="validation-outlined-input"
@@ -420,14 +430,14 @@ export default class CadastroFuncionario extends React.Component {
                         <ValidationTextField
                             label="Senha"
                             type="password"
-                            required
+                            // required
                             variant="outlined"
                             margin='normal'
                             id="validation-outlined-input"
                         />
                         <ValidationTextField
                             label="Email"
-                            required
+                            // required
                             value={this.state.email}
                             onChange={this.atualizaEmail}
                             // sx={{ width: '28vh' }}
@@ -437,13 +447,13 @@ export default class CadastroFuncionario extends React.Component {
                         />
                     </div>
                     <div className='button-enviar'>
-                        <DialogTaskSend/>
-                        {/* <Button className='btn-grad-form'
+                        {/* <DialogTaskSend/> */}
+                        <Button className='btn-grad-form'
                             variant="outlined"
                             onClick={this.submit}
                         >
                             ENVIAR
-                        </Button> */}
+                        </Button>
                     </div>
                 </div>
 

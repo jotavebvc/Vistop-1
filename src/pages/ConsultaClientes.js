@@ -18,19 +18,6 @@ const url = "https://vistapp-backend.herokuapp.com/clientes/"
 
 
 
-// function createUser () {
-//     axios.post(url, {
-//         "nome": "nome-id",
-//         "razao_social": "razao-social-id",
-//         "numero_cnpj": "numero-cnpj-id",
-//         "bairro": "bairro-id",
-//         "cidade": "cidade-id",
-//         "endereco": "endereco-id",
-//         "endereco_numero": "endereco-numero-id"
-//         "cep" : "cep-id"
-
-//     })
-// }
 // class SaveMode extends React.Component {
 //     constructor(props) {
 //       super(props); 
@@ -106,43 +93,50 @@ const ValidationTextField = styled(TextField, Autocomplete)({
 
 const nomeCliente = [
     { label: 'costumer.userName', id: 1 },
-    { label: 'vistop', id: 2 }
+    { label: 'jotavebvc', id: 2 }
 ];
 
-
+const arraySize = 0;
 
 
 
 
 
 export default class CadastroCliente extends React.Component {
+
+
     change = () => {
+        // this.setState({
+        //     arraySize: this.state.cliente.findIndex(),
+        // })
         this.setState({
-            nome: 'Vistop',
-            user_id: 'jotavebvc',
-            razao_social: 'Vistop',
-            cep: '99999999',
-            numero_cnpj: '99999999',
-            bairro: 'Maranguape',
-            cidade: 'Maranguape',
-            endereco: 'Rua dos bobos',
-            endereco_numero: '0',
-            aliquota_iss: '0',
-            valor_contrato: '999999,00',
-            data_inicio_contrato: '',
-            created_on: '',
-            valor_contrato: '9999999,99',
-            telefone_financeiro: '999999999',
-            telefone_operacional: '999999999',
-            email_financeiro: 'jotavebvc@gmail.com',
-            email_operacional: 'vistop@gmail.com',
-    
+            nome: this.state.cliente[this.state.cliente.length -1].nome,
+            user_id: this.state.cliente[this.state.cliente.length -1].user_id,
+            // razao_social: this.state.cliente.pop().razao_social,
+            // cep: this.state.cliente.pop().cep,
+            // numero_cnpj: this.state.cliente.pop().numero_cnpj,
+            // bairro: this.state.cliente.pop().bairro, 
+            // cidade: this.state.cliente.pop().cidade,
+            // endereco: this.state.cliente.pop().endereco,
+            // endereco_numero: this.state.cliente.pop().endereco_numero,
+            // aliquota_iss: this.state.cliente.slice(-1).aliquota_iss,
+            // valor_contrato: this.state.cliente.slice(-1).valor_contrato,
+            // data_inicio_contrato: this.state.cliente.slice(-1).data_inicio_contrato,
+            // created_on: this.state.cliente.slice(-1).created_on,
+            // valor_contrato: this.state.cliente.slice(-1).valor_contrato,
+            // telefone_financeiro: this.state.cliente.slice(-1).telefone_financeiro,
+            // telefone_operacional: this.state.cliente.slice(-1).telefone_operacional,
+            // email_financeiro: this.state.cliente.slice(-1).email_financeiro,
+            // email_operacional: this.state.cliente.slice(-1).email_operacional,
+
         })
-      }
-    
+    }
+
     constructor(props) {
         super(props);
         this.state = {
+            // payload: [],
+            arraySize: '',
             user_id: '',
             nome: '',
             razao_social: '',

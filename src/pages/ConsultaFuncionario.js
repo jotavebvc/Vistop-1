@@ -87,9 +87,9 @@ export default class CadastroFuncionario extends React.Component {
         };
     };
 
-    // componentDidMount() {
-    //       this.buscarFuncionario();
-    // }
+    componentDidMount() {
+          this.buscarFuncionario();
+    }
 
     atualizaNome = (e) => {
         this.setState(
@@ -220,29 +220,22 @@ export default class CadastroFuncionario extends React.Component {
     }
 
     change = () => {
-        this.state.nome = 'jotavebvc'
-        this.state.nome_social = 'jotavebvc'
-        this.state.numero_carteira = '99999999999'
-        this.state.data_nascimento = '14/10/1997'
-        this.state.data_ingresso = '18/09/2022'
-        this.state.numero_pis = '99999999999'
-        this.state.rg = '002709944'
-        this.state.cpf = '114075594-35'
-        this.state.titulo_numero = '99999999999'
-        this.state.funçao = 'Operador'
-        this.state.genero = 'Masculino'
-        this.state.login = 'jotavebvc'
-        this.state.email = 'jotavebvc@gmail.com'
+            const funcionario = this.state.funcionario[this.state.funcionario.length -1];
             this.setState({
-                nome: 'jotavebvc',
-                // nome_social: e.target.value,
-                // numero_carteira: e.target.value,
-                // a: e.target.value,
-                // email: e.target.value,
-                // email: e.target.value,
-                // email: e.target.value,
-                // email: e.target.value,
-                // email: e.target.value,
+                nome: this.state.funcionario[this.state.funcionario.length -1].nome,
+                nome_social: this.state.funcionario[this.state.funcionario.length -1].nome_social,
+                numero_carteira: this.state.funcionario[this.state.funcionario.length -1].numero_carteira,
+                data_nascimento: this.state.funcionario[this.state.funcionario.length -1].numero_carteira,
+                data_ingresso: funcionario.data_ingresso,
+                cpf: funcionario.cpf,
+                rg: funcionario.rg,
+                numero_pis: funcionario.numero_pis,
+                titulo_numero: funcionario.titulo_numero,
+                genero: funcionario.genero,
+                funçao: funcionario.funçao,
+                data_vencimento_cnh: funcionario.data_vencimento_cnh,
+                data_vencimento_aso: funcionario.data_vencimento_aso,
+                email: funcionario.email,
                 // email: e.target.value,
 
             }
