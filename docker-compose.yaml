@@ -7,7 +7,7 @@ services:
     volumes:
       - .:/vistop
       - node_modules:/vistop/node_modules
-    command: "npm start"
+    command: bash -c "chmod -R 777 /vistop/node_modules/ && npm start"
     ports:
       - "3000:3000"
     privileged: true

@@ -1,6 +1,6 @@
 FROM node:16-buster-slim
 
-COPY . /opt/vistop
-WORKDIR /opt/vistop
+COPY . /vistop
+WORKDIR /vistop
 
-RUN npm ci --legacy-peer-deps
+RUN npm ci --legacy-peer-deps --unsafe-perm
