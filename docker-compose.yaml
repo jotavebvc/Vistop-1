@@ -1,0 +1,15 @@
+version: '2.0'
+
+services:
+  front:
+    build:
+      context: .
+    volumes:
+      - .:/vistop
+      - node_modules:/vistop/node_modules
+    command: "npm start"
+    ports:
+      - "3000:3000"
+    privileged: true
+volumes:
+  node_modules:

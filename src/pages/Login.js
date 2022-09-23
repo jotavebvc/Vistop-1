@@ -21,18 +21,40 @@ const Login = (props) => {
     const goToHomeAdm = () => {
         navigate("/home-adm", { replace: true })
     }
-    const goToHomeOperador = () => {
-        navigate("/home-operador", { replace: true })
-    }
-  
-    // const handleFormSubmit = async (event) => {
-        // const response = await fetch("http://localhost:3004/login", { method: "POST" })
+    // const goToHomeOperador = () => {
+    //     navigate("/home-operador", { replace: true })
+    // }
+
+    const handleFormSubmit = async (event) => {
+        const loginPayload = await JSON.stringify({
+            username: "jotavemonte",
+            password: "jvmrt123"
+        })
+        console.log(loginPayload)
+        const response = await fetch(
+            "http://localhost:8000/login/",
+            {
+                method: "POST",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: loginPayload
+            }
+        )
+        if (response.ok) {
+            const token = response.body.token
+            localStorage.setItem('token', token)
+        }
+
         // if (response.status >= 400) {
         //     setMensagemDeErro(await response.json().error)
         //     return
         // }
-    //     navigate("/home-operador", { replace: true })
-    // }
+        // navigate("/home-operador", { replace: true })
+    }
+
+    handleFormSubmit(null)
 
     return (
         <div className='degrade-context'>
@@ -55,18 +77,18 @@ const Login = (props) => {
                             autoComplete="current-password"
                             onChange={handlePasswordInput}
                         />
-                        <Button className='btn-grad'
+                        {/* <Button className='btn-grad'
                             variant="outlined"
                             onClick={goToHomeAdm}
                         >
-                            {mensagemDeErro || "ENTRAR"}            1               
+                            {mensagemDeErro || "ENTRAR"}            1
                         </Button>
                         <Button className='btn-grad1'
                             variant="outli  ned"
                             onClick={goToHomeOperador}
                         >
                             {mensagemDeErro || "ENTRAR"}
-                        </Button>
+                        </Button> */}
                     </div>
                 </div>
             </div>
