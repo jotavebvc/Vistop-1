@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { Button, TextField, Container } from '@mui/material';
 import 'Scss/Login.scss';
@@ -18,17 +18,14 @@ const Login = (props) => {
         setPassword(event.target.value)
     }
 
-    const goToHomeAdm = () => {
-        navigate("/home-adm", { replace: true })
+    const goToHomeOperador = () => {
+        navigate("/home-operador", { replace: true })
     }
-    // const goToHomeOperador = () => {
-    //     navigate("/home-operador", { replace: true })
-    // }
 
     const handleFormSubmit = async (event) => {
         const loginPayload = await JSON.stringify({
-            username: "jotavemonte",
-            password: "jvmrt123"
+            username: login,
+            password: password
         })
         console.log(loginPayload)
         const response = await fetch(
@@ -43,18 +40,18 @@ const Login = (props) => {
             }
         )
         if (response.ok) {
-            const token = response.body.token
-            localStorage.setItem('token', token)
+            const body = await response.json()
+            localStorage.setItem('token', body.token)
+            goToHomeOperador()
         }
-
-        // if (response.status >= 400) {
-        //     setMensagemDeErro(await response.json().error)
-        //     return
-        // }
-        // navigate("/home-operador", { replace: true })
     }
 
-    handleFormSubmit(null)
+    useEffect(() => {
+        const token = localStorage.getItem("token")
+        if (token) {
+            goToHomeOperador()
+        }
+    })
 
     return (
         <div className='degrade-context'>
@@ -77,18 +74,12 @@ const Login = (props) => {
                             autoComplete="current-password"
                             onChange={handlePasswordInput}
                         />
-                        {/* <Button className='btn-grad'
+                        <Button className='btn-grad'
                             variant="outlined"
-                            onClick={goToHomeAdm}
-                        >
-                            {mensagemDeErro || "ENTRAR"}            1
-                        </Button>
-                        <Button className='btn-grad1'
-                            variant="outli  ned"
-                            onClick={goToHomeOperador}
+                            onClick={handleFormSubmit}
                         >
                             {mensagemDeErro || "ENTRAR"}
-                        </Button> */}
+                        </Button>
                     </div>
                 </div>
             </div>

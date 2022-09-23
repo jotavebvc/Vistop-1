@@ -13,8 +13,6 @@ import DialogTaskProcessos from '../components/DialogTaskSend.js';
 
 
 const url ="https://vistapp-backend.herokuapp.com/clientes/"
-
-
 // const url = "http://localhost:8000/clientes/"
 
 
@@ -36,8 +34,8 @@ const url ="https://vistapp-backend.herokuapp.com/clientes/"
 // }
 // class SaveMode extends React.Component {
 //     constructor(props) {
-//       super(props); 
-//       this.state = { 
+//       super(props);
+//       this.state = {
 //         user_id: '',
 //         nome: '',
 //         razao_social: '',
@@ -49,15 +47,15 @@ const url ="https://vistapp-backend.herokuapp.com/clientes/"
 //         cep: '',
 //         created_on: '',
 //         edited_on: '',
-//         aliquota_iss: '', 
+//         aliquota_iss: '',
 //         telefone_operacional: '',
 //         telefone_financeiro: '',
 //         email_operacional: '',
 //         email_financeiro: '',
 //         data_inicio_contrato: '',
-//         valor_contrato: '', 
+//         valor_contrato: '',
 //        };
-    
+
 // }
 // const navigate = useNavigate()
 // const goToHomeAdm = () => {
@@ -79,13 +77,13 @@ const url ="https://vistapp-backend.herokuapp.com/clientes/"
 //         cep: '',
 //         created_on: '',
 //         edited_on: '',
-//         aliquota_iss: '', 
+//         aliquota_iss: '',
 //         telefone_operacional: '',
 //         telefone_financeiro: '',
 //         email_operacional: '',
 //         email_financeiro: '',
 //         data_inicio_contrato: '',
-//         valor_contrato: '', 
+//         valor_contrato: '',
 //        };
 //       };
 //     render() {
@@ -126,13 +124,13 @@ export default class CadastroCliente extends React.Component {
         endereco_numero: '',
         cep: '',
         created_on: '',
-        aliquota_iss: '', 
+        aliquota_iss: '',
         telefone_operacional: '',
         telefone_financeiro: '',
         email_operacional: '',
         email_financeiro: '',
         data_inicio_contrato: '',
-        valor_contrato: '', 
+        valor_contrato: '',
        };
       };
 
@@ -153,98 +151,98 @@ export default class CadastroCliente extends React.Component {
                 razao_social: e.target.value
             }
         )
-      }      
+      }
       atualizaNumeroCNPJ = (e) => {
         this.setState(
             {
                 numero_cnpj: e.target.value
             }
         )
-      }      
+      }
       atualizaBairro = (e) => {
         this.setState(
             {
                 bairro: e.target.value
             }
         )
-      }     
+      }
       atualizaCidade = (e) => {
         this.setState(
             {
                 cidade: e.target.value
             }
         )
-      }      
+      }
       atualizaEndereco = (e) => {
         this.setState(
             {
                 endereco: e.target.value
             }
         )
-      }      
+      }
       atualizaEnderecoNumero = (e) => {
         this.setState(
             {
                 endereco_numero: e.target.value
             }
         )
-      }      
+      }
       atualizaCEP = (e) => {
         this.setState(
             {
                 cep: e.target.value
             }
         )
-      }      
+      }
       atualizaAliquotaISS = (e) => {
         this.setState(
             {
                 aliquota_iss: e.target.value
             }
         )
-      }      
+      }
       atualizaCreatedOn = (e) => {
         this.setState(
             {
                 created_on: e.target.value
             }
         )
-      }      
+      }
       atualizaTelefoneOperacional = (e) => {
         this.setState(
             {
                 telefone_operacional: e.target.value
             }
         )
-      }      
+      }
       atualizaEmailOperacional = (e) => {
         this.setState(
             {
                 email_operacional: e.target.value
             }
         )
-      }      
+      }
       atualizaTelefoneFinanceiro = (e) => {
         this.setState(
             {
                 telefone_financeiro: e.target.value
             }
         )
-      }           
+      }
       atualizaEmailFinanceiro = (e) => {
         this.setState(
             {
                 email_financeiro: e.target.value
             }
         )
-      }      
+      }
       atualizaDataInicioContrato = (e) => {
         this.setState(
             {
                 data_inicio_contrato: e.target.value
             }
         )
-      }      
+      }
       atualizaValorContrato = (e) => {
         this.setState(
             {
@@ -293,9 +291,12 @@ export default class CadastroCliente extends React.Component {
       }
 
       cadastrarCliente = (cliente) => {
-        fetch(url, 
-            {method: 'POST', 
-            headers: {'Content-type':'application/json'},
+        fetch(url,
+            {method: 'POST',
+            headers: {
+                'Content-type':'application/json',
+                'Authorization': `Token ${localStorage.getItem('token')}`
+            },
             body: JSON.stringify(cliente)
         })
         .then(response => {
@@ -308,7 +309,7 @@ export default class CadastroCliente extends React.Component {
             }
         })
       }
-       
+
 
 
     render() {
@@ -489,7 +490,7 @@ export default class CadastroCliente extends React.Component {
                         <ValidationTextField
                             label="Telefone de contato financeiro"
                             sx={{ width: '45vh' }}
-                            required                         
+                            required
                             value={this.state.telefone_financeiro}
                             onChange={this.atualizaTelefoneFinanceiro}
                             type="number"
