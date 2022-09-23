@@ -29,7 +29,7 @@ const Login = (props) => {
         })
         console.log(loginPayload)
         const response = await fetch(
-            "http://localhost:8000/login/",
+            "https://vistapp-backend.herokuapp.com/funcionarios/",
             {
                 method: "POST",
                 headers: {
