@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Button, TextField, Container } from "@mui/material";
 import Cookies from "js-cookie";
 import "Scss/Login.scss";
+import { serverUrl } from '../settings'
 
 
 const url = `${serverUrl}/login/`
