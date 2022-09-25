@@ -1,6 +1,7 @@
 import React from 'react';
+import { serverUrl } from '../settings'
 
-const url = "https://vistapp-backend.herokuapp.com/clientes/"
+const url = `${serverUrl}/clientes/`
 
 
 export default class CadastroClienteV2 extends React.Component {

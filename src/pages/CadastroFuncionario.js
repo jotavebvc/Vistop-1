@@ -7,59 +7,36 @@ import SideBar from '../components/SideBar.js';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { styled } from '@mui/material/styles';
-import { IMaskInput } from 'react-imask';
-import DialogTaskSend from 'Components/DialogTaskSend.js';
-// import Radio from '@mui/material/Radio';
-// import RadioGroup from '@mui/material/RadioGroup';
-// import FormControlLabel from '@mui/material/FormControlLabel';
-// import FormControl from '@mui/material/FormControl';
-// import FormLabel from '@mui/material/FormLabel';
+import { serverUrl } from '../settings'
 
-// const CadastroFuncionario = (props) => {
-    // const navigate = useNavigate()
-    // const goToHomeAdm = () => {
-    //     navigate("/home-adm", { replace: true })
-    // }
+const url =`${serverUrl}/funcionarios/`
+const ValidationTextField = styled(TextField)({
+    '& input:valid + fieldset': {
+        borderColor: 'green',
+        borderWidth: 2,
+    },
+    '& input:invalid + fieldset': {
+        borderColor: 'gray',
+        borderWidth: 1,
+    },
+    '& input:valid:focus + fieldset': {
+        borderLeftWidth: 6,
+        padding: '4px !important', // override inline-style
+    },
+});
 
-    const url ="https://vistapp-backend.herokuapp.com/funcionarios/"
-    const ValidationTextField = styled(TextField)({
-        '& input:valid + fieldset': {
-            borderColor: 'green',
-            borderWidth: 2,
-        },
-        '& input:invalid + fieldset': {
-            borderColor: 'gray',
-            borderWidth: 1,
-        },
-        '& input:valid:focus + fieldset': {
-            borderLeftWidth: 6,
-            padding: '4px !important', // override inline-style
-        },
-    });
+const cargo = [
+    { label: "Operador", id: 1 },
+    { label: 'Administração', id: 2 },
+    { label: 'Gerência', id: 3 },
+];
 
-    const cargo = [
-        { label: "Operador", id: 1 },
-        { label: 'Administração', id: 2 },
-        { label: 'Gerência', id: 3 },
-    ];
-    
-    const gender = [
-        { label: 'Masculino', id: 101, },
-        { label: 'Feminino', id: 102 },
-        { label: 'Outro', id: 103 },
-    ];
+const gender = [
+    { label: 'Masculino', id: 101, },
+    { label: 'Feminino', id: 102 },
+    { label: 'Outro', id: 103 },
+];
 
-    // const TextMaskCustom = forwardRef(function TextMaskCustom(props, ref) {
-    //     const { onChange, ...other } = props;
-    //     return (
-    //         <IMaskInput
-    //             {...other}
-    //             mask="000.000.000-00"
-    //             inputRef={ref}
-    //             // overwrite
-    //         />
-    //     );
-    // });
 export default class CadastroFuncionario extends React.Component {
     constructor(props) {
         super(props);
@@ -74,18 +51,18 @@ export default class CadastroFuncionario extends React.Component {
           rg: '',
           numero_pis: '',
           titulo_numero: '',
-          genero: '', 
+          genero: '',
           funçao: '',
           data_vencimento_cnh: '',
           data_vencimento_aso: '',
           email: '',
          };
         };
-  
+
         // componentDidMount() {
         //       this.buscarFuncionario();
         // }
-  
+
         atualizaNome = (e) => {
           this.setState(
               {
@@ -99,99 +76,99 @@ export default class CadastroFuncionario extends React.Component {
                   nome_social: e.target.value
               }
           )
-        }      
+        }
         atualizaNumeroCarteira = (e) => {
           this.setState(
               {
                   numero_carteira: e.target.value
               }
           )
-        }      
+        }
         atualizaDataNascimento = (e) => {
           this.setState(
               {
                   data_nascimento: e.target.value
               }
           )
-        }     
+        }
         atualizaDataIngresso = (e) => {
           this.setState(
               {
                   data_ingresso: e.target.value
               }
           )
-        }      
+        }
         atualizaNumeroPis = (e) => {
           this.setState(
               {
                   numero_pis: e.target.value
               }
           )
-        }      
+        }
         atualizaRg = (e) => {
           this.setState(
               {
                   rg: e.target.value
               }
           )
-        }      
+        }
         atualizaCPF = (e) => {
           this.setState(
               {
                   cpf: e.target.value
               }
           )
-        }      
+        }
         atualizaTituloNumero = (e) => {
           this.setState(
               {
                   titulo_numero: e.target.value
               }
           )
-        }      
+        }
         atualizaGenero = (e) => {
           this.setState(
               {
                   genero: e.target.value
               }
           )
-        }      
+        }
         atualizaFunçao = (e) => {
           this.setState(
               {
                   funçao: e.target.value
               }
           )
-        }      
+        }
         atualizaDataVencimentoCnh = (e) => {
           this.setState(
               {
                   data_vencimento_cnh: e.target.value
               }
           )
-        }      
+        }
         atualizaDataVencimentoAso = (e) => {
           this.setState(
               {
                 data_vencimento_aso: e.target.value
               }
           )
-        }           
+        }
         atualizaEmail = (e) => {
           this.setState(
               {
                   email: e.target.value
               }
           )
-        }      
+        }
         atualizaUserId = (e) => {
             this.setState(
                 {
                     user_id: e.target.value
                 }
             )
-          }    
-  
+          }
+
         submit = () => {
           const funcionario = {
             user_id: this.state.user_id,
@@ -204,7 +181,7 @@ export default class CadastroFuncionario extends React.Component {
             rg: this.state.rg,
             numero_pis: this.state.numero_pis,
             titulo_numero: this.state.titulo_numero,
-            genero: this.state.genero, 
+            genero: this.state.genero,
             funçao: this.state.funçao,
             data_vencimento_cnh: this.state.data_vencimento_cnh,
             data_vencimento_aso: this.state.data_vencimento_aso,
@@ -213,7 +190,7 @@ export default class CadastroFuncionario extends React.Component {
           this.cadastrarFuncionario(funcionario);
           console.log(this.state.nome)
         }
-  
+
         buscarFuncionario = () => {
           fetch(url)
               .then(response => response.json())
@@ -221,24 +198,24 @@ export default class CadastroFuncionario extends React.Component {
                   this.setState({ funcionario: dados })
               })
         }
-  
+
         cadastrarFuncionario = (funcionario) => {
-          fetch(url, 
-              {method: 'POST', 
+          fetch(url,
+              {method: 'POST',
               headers: {'Content-type':'application/json'},
               body: JSON.stringify(funcionario)
           })
           .then(response => {
               if(response.ok) {
                   this.buscarFuncionario();
-   
+
               }else{
                   alert=("Não foi possível.")
               }
             //   <DialogTaskSend />
           })
         }
-  
+
       render() {
 
     return (

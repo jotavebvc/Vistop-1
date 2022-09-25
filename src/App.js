@@ -1,28 +1,13 @@
 import React from 'react';
-import logo from 'Images/logoVis.png';
 import 'Scss/App.css';
 import { Button } from '@mui/material';
-
-
-const url ="https://vistapp-backend.herokuapp.com/clientes"
+import { serverUrl } from './settings'
 
 async function fetchApiData () {
-  const response = await fetch(url)
+  const response = await fetch(`${serverUrl}/clientes/`)
   const responseJson = await response.json()
   console.log(responseJson)
 }
-
-// async function fetchApiData () {
-//     const response = await fetch(url);
-
-//     console.log(response);
-// }
-// class Checkbox extends React.Component {
-//   constructor(props) {
-//     super(props); 
-//     this.state = { isOn: true };
-//   }
-
 
 function App() {
   return (
@@ -35,5 +20,4 @@ function App() {
   );
 }
 
-export default App;    
-
+export default App;

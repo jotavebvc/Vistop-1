@@ -7,89 +7,10 @@ import SideBar from '../components/SideBar.js';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { styled } from '@mui/material/styles';
-import DialogTaskProcessos from '../components/DialogTaskSend.js';
+import { serverUrl } from '../settings'
 
+const url = `${serverUrl}/clientes/`
 
-
-
-const url ="https://vistapp-backend.herokuapp.com/clientes/"
-// const url = "http://localhost:8000/clientes/"
-
-
-
-
-
-// function createUser () {
-//     axios.post(url, {
-//         "nome": "nome-id",
-//         "razao_social": "razao-social-id",
-//         "numero_cnpj": "numero-cnpj-id",
-//         "bairro": "bairro-id",
-//         "cidade": "cidade-id",
-//         "endereco": "endereco-id",
-//         "endereco_numero": "endereco-numero-id"
-//         "cep" : "cep-id"
-
-//     })
-// }
-// class SaveMode extends React.Component {
-//     constructor(props) {
-//       super(props);
-//       this.state = {
-//         user_id: '',
-//         nome: '',
-//         razao_social: '',
-//         numero_cnpj: '',
-//         bairro: '',
-//         cidade: '',
-//         endereco: '',
-//         endereco_numero: '',
-//         cep: '',
-//         created_on: '',
-//         edited_on: '',
-//         aliquota_iss: '',
-//         telefone_operacional: '',
-//         telefone_financeiro: '',
-//         email_operacional: '',
-//         email_financeiro: '',
-//         data_inicio_contrato: '',
-//         valor_contrato: '',
-//        };
-
-// }
-// const navigate = useNavigate()
-// const goToHomeAdm = () => {
-//     navigate("/home-adm", { replace: true })
-// }
-
-// class Car extends React.Component {
-//     constructor(props) {
-//       super(props);
-//       this.state = {
-//         user_id: '',
-//         nome: '',
-//         razao_social: '',
-//         numero_cnpj: '',
-//         bairro: '',
-//         cidade: '',
-//         endereco: '',
-//         endereco_numero: '',
-//         cep: '',
-//         created_on: '',
-//         edited_on: '',
-//         aliquota_iss: '',
-//         telefone_operacional: '',
-//         telefone_financeiro: '',
-//         email_operacional: '',
-//         email_financeiro: '',
-//         data_inicio_contrato: '',
-//         valor_contrato: '',
-//        };
-//       };
-//     render() {
-//       return (this.state);
-//     }
-// }
 const ValidationTextField = styled(TextField, Autocomplete)({
     '& input:valid + fieldset': {
         borderColor: 'green',
@@ -104,11 +25,6 @@ const ValidationTextField = styled(TextField, Autocomplete)({
         padding: '4px !important', // override inline-style
     },
 });
-
-
-
-
-
 
 export default class CadastroCliente extends React.Component {
     constructor(props) {
@@ -133,10 +49,6 @@ export default class CadastroCliente extends React.Component {
         valor_contrato: '',
        };
       };
-
-    //   componentDidMount() {
-    //         this.buscarCliente();
-    //   }
 
       atualizaNome = (e) => {
         this.setState(
@@ -562,15 +474,3 @@ export default class CadastroCliente extends React.Component {
     )
 }
 }
-
-// module.exports CadastroCliente;
-// export default CadastroCliente;
-// adicionar numero do registro da anvisa no cadastro de produto
-//instruções de uso
-//escolher qual foi a praga que ele encontrou quantitativamente
-//quantos focos
-//produto utilizado
-//quanto de produto
-//concentração que usou
-// passar toda a liinha sobre contrato para cadastro do cliente
-
