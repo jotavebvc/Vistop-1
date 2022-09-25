@@ -11,5 +11,9 @@ services:
     ports:
       - "3000:3000"
     privileged: true
+    networks:
+      - vistop
 volumes:
   node_modules:
+networks:
+  vistop:
