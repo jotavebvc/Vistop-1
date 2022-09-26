@@ -61,7 +61,8 @@ export default class CadastroFuncionario extends React.Component {
       funçao: "",
       data_vencimento_cnh: "",
       data_vencimento_aso: "",
-      email: ""
+      email: "",
+      funcionarios: []
     };
   }
 
@@ -167,18 +168,13 @@ export default class CadastroFuncionario extends React.Component {
     console.log(this.state.nome);
   };
 
-  change = () => {
-    const funcionario = this.state.funcionario[
-      this.state.funcionario.length - 1
-    ];
+  change = (e, nomeFuncionario) => {
+    const funcionario = this.state.funcionarios[nomeFuncionario]
     this.setState({
-      nome: this.state.funcionario[this.state.funcionario.length - 1].nome,
-      nome_social: this.state.funcionario[this.state.funcionario.length - 1]
-        .nome_social,
-      numero_carteira: this.state.funcionario[this.state.funcionario.length - 1]
-        .numero_carteira,
-      data_nascimento: this.state.funcionario[this.state.funcionario.length - 1]
-        .numero_carteira,
+      nome: funcionario.nome,
+      nome_social: funcionario.nome_social,
+      numero_carteira: funcionario.numero_carteira,
+      data_nascimento: funcionario.numero_carteira,
       data_ingresso: funcionario.data_ingresso,
       cpf: funcionario.cpf,
       rg: funcionario.rg,
@@ -189,13 +185,16 @@ export default class CadastroFuncionario extends React.Component {
       data_vencimento_cnh: funcionario.data_vencimento_cnh,
       data_vencimento_aso: funcionario.data_vencimento_aso,
       email: funcionario.email
-      // email: e.target.value,
     });
   };
 
   buscarFuncionario = () => {
     fetch(url).then(response => response.json()).then(dados => {
-      this.setState({ funcionario: dados });
+      const funcionariosBulk = {}
+      dados.forEach(funcionario => {
+        funcionariosBulk[funcionario.nome] = funcionario
+      })
+      this.setState({ funcionarios: funcionariosBulk });
     });
   };
 
@@ -246,12 +245,12 @@ export default class CadastroFuncionario extends React.Component {
                 disablePortal
                 id="periodicidade-id"
                 onChange={this.change}
-                options={nomeCliente}
+                options={Object.keys(this.state.funcionarios)}
                 sx={{ width: 225 }}
                 renderInput={params =>
                   <TextField
                     {...params}
-                    label="$get user.userName & selected data"
+                    label="Funcionário"
                   />}
               />
             </div>
