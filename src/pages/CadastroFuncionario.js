@@ -8,7 +8,7 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { styled } from '@mui/material/styles';
 import { serverUrl } from '../settings'
-import DialogTaskSend from '../components/DialogTaskSend.js'
+// import DialogTaskSend from '../components/DialogTaskSend.js'
 
 const url = `${serverUrl}/funcionarios/`
 const ValidationTextField = styled(TextField)({
@@ -446,13 +446,13 @@ export default class CadastroFuncionario extends React.Component {
                             />
                         </div>
                         <div className='button-enviar'>
-                            <DialogTaskSend onClick={this.submit}/>
-                            {/* <Button className='btn-grad-form'
+                            {/* <DialogTaskSend onClick={this.submit}/> */}
+                            <Button className='btn-grad-form'
                                 variant="outlined"
                                 onClick={this.submit}
                             >
                                 ENVIAR
-                            </Button> */}
+                            </Button>
                         </div>
                     </div>
 
