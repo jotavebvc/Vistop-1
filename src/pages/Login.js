@@ -21,8 +21,8 @@ const Login = props => {
     setPassword(event.target.value);
   };
 
-  const goToHomeOperador = () => {
-    navigate("/home-operador", { replace: true });
+  const goToHomeAdm = () => {
+    navigate("/home-adm", { replace: true });
   };
 
   const handleFormSubmit = async event => {
@@ -42,14 +42,14 @@ const Login = props => {
       }
     );
     if (response.ok) {
-      goToHomeOperador();
+      goToHomeAdm();
     }
   };
 
   useEffect(() => {
     const loggedIn = Cookies.get("sessionid");
     if (loggedIn) {
-      goToHomeOperador();
+      goToHomeAdm();
     }
   });
 
