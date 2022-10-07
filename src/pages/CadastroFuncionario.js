@@ -26,13 +26,13 @@ const ValidationTextField = styled(TextField)({
 });
 
 const cargo = [
-    { label: "Operador", id: 1 },
+    { label: "Operador", id: 1, value: "Masculino" },
     { label: 'Administração', id: 2 },
     { label: 'Gerência', id: 3 },
 ];
 
 const gender = [
-    { label: 'Masculino', id: 101, },
+    { label: 'Masculino', id: 101, value: "Masculino" },
     { label: 'Feminino', id: 102 },
     { label: 'Outro', id: 103 },
 ];
