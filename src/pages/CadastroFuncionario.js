@@ -42,7 +42,7 @@ export default class CadastroFuncionario extends React.Component {
         super(props);
         this.state = {
           user_id: '',
-          password: '',
+        //   password: '',
           nome: '',
           nome_social: '',
           numero_carteira: '',
@@ -180,7 +180,7 @@ export default class CadastroFuncionario extends React.Component {
         submit = () => {
           const funcionario = {
             user_id: this.state.user_id,      
-            password: this.state.password, 
+            // password: this.state.password, 
             nome: this.state.nome,
             nome_social: this.state.nome_social,
             numero_carteira: this.state.numero_carteira,
@@ -417,8 +417,8 @@ export default class CadastroFuncionario extends React.Component {
                             label="Senha"
                             type="password"
                             required
-                            value={this.state.password}
-                            onChange={this.atualizaPassword}
+                            // value={this.state.password}
+                            // onChange={this.atualizapa}
                             variant="outlined"
                             margin='normal'
                             id="validation-outlined-input"
