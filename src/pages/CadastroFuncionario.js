@@ -54,7 +54,8 @@ export default class CadastroFuncionario extends React.Component {
             data_vencimento_cnh: '',
             data_vencimento_aso: '',
             email: '',
-            snackMessage: ''
+            snackMessage: '',
+            snackSeverity: 'info'
         };
     };
 
@@ -209,7 +210,7 @@ export default class CadastroFuncionario extends React.Component {
                 this.buscarFuncionario();
                 this.setState({ open: true, snackMessage: "Sucesso" });
             } else {
-                this.setState({ open: true, snackMessage: "Opa, deu ruim" });
+                this.setState({ open: true, snackMessage: "Opa, deu ruim", snackSeverity: "error" });
             }
         })
     }
@@ -225,6 +226,7 @@ export default class CadastroFuncionario extends React.Component {
                     open={this.state.open}
                     message={this.state.snackMessage}
                     onClose={this.close}
+                    severity={this.state.snackSeverity}
                 />
                 <div className='Side-bar' >
                     <SideBar />
