@@ -27,15 +27,15 @@ const ValidationTextField = styled(TextField)({
 });
 
 const cargo = [
-  { label: "Operador", id: 1 },
-  { label: "Administração", id: 2 },
-  { label: "Gerência", id: 3 }
+  { label: "Operador", id: "1" },
+  { label: "Administração", id: "2" },
+  { label: "Gerência", id: "3" }
 ];
 
 const gender = [
-  { label: "Masculino", id: 101 },
-  { label: "Feminino", id: 102 },
-  { label: "Outro", id: 103 }
+  { label: "Masculino", id: "101" },
+  { label: "Feminino", id: "102" },
+  { label: "Outro", id: "103" }
 ];
 
 const nomeCliente = [
@@ -57,8 +57,8 @@ export default class CadastroFuncionario extends React.Component {
       rg: "",
       numero_pis: "",
       titulo_numero: "",
-      genero: "",
-      funçao: "",
+      genero: "103",
+      funçao: "1",
       data_vencimento_cnh: "",
       data_vencimento_aso: "",
       email: "",
@@ -264,7 +264,7 @@ export default class CadastroFuncionario extends React.Component {
                 value={this.state.nome_social}
                 margin="normal"
                 variant="outlined"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
               <ValidationTextField
                 sx={{ width: "45vh" }}
@@ -274,7 +274,7 @@ export default class CadastroFuncionario extends React.Component {
                 onChange={this.atualizaNome}
                 margin="normal"
                 variant="outlined"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
             </div>
             <div className="form-small">
@@ -286,7 +286,7 @@ export default class CadastroFuncionario extends React.Component {
                 type="number"
                 variant="outlined"
                 margin="normal"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
               <ValidationTextField
                 helperText="Data de nascimento"
@@ -296,7 +296,7 @@ export default class CadastroFuncionario extends React.Component {
                 required
                 variant="outlined"
                 margin="normal"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
               <ValidationTextField
                 helperText="Data de Ingresso"
@@ -306,7 +306,7 @@ export default class CadastroFuncionario extends React.Component {
                 type="date"
                 variant="outlined"
                 margin="normal"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
               <ValidationTextField
                 label="Número do PIS"
@@ -316,7 +316,7 @@ export default class CadastroFuncionario extends React.Component {
                 type="number"
                 variant="outlined"
                 margin="normal"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
             </div>
             <div className="form-small">
@@ -328,7 +328,7 @@ export default class CadastroFuncionario extends React.Component {
                 type="number"
                 variant="outlined"
                 margin="normal"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
               <ValidationTextField
                 label="CPF"
@@ -340,7 +340,7 @@ export default class CadastroFuncionario extends React.Component {
                 // InputProps={{
                 //     inputComponent: TextMaskCustom,
                 // }}
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
 
               <ValidationTextField
@@ -351,7 +351,7 @@ export default class CadastroFuncionario extends React.Component {
                 onChange={this.atualizaTituloNumero}
                 variant="outlined"
                 margin="normal"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
             </div>
             <div className="form-small-function">
@@ -404,7 +404,7 @@ export default class CadastroFuncionario extends React.Component {
                 required
                 variant="outlined"
                 margin="normal"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />{" "}
               <ValidationTextField
                 helperText="Data de vencimento ASO"
@@ -415,7 +415,7 @@ export default class CadastroFuncionario extends React.Component {
                 required
                 variant="outlined"
                 margin="normal"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
             </div>
             <div className="form-small-login">
@@ -427,7 +427,7 @@ export default class CadastroFuncionario extends React.Component {
                 onChange={this.atualizaLogin}
                 variant="outlined"
                 margin="normal"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
               <ValidationTextField
                 label="Senha"
@@ -435,7 +435,7 @@ export default class CadastroFuncionario extends React.Component {
                 required
                 variant="outlined"
                 margin="normal"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
               <ValidationTextField
                 label="Email"
@@ -445,7 +445,7 @@ export default class CadastroFuncionario extends React.Component {
                 // sx={{ width: '28vh' }}
                 variant="outlined"
                 margin="normal"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
             </div>
             <div className="button-enviar">

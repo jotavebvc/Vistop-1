@@ -92,7 +92,7 @@ export default class CadastroSetores extends React.Component {
                 sx={{ width: "425vh" }}
                 variant="outlined"
                 margin="normal"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
             </div>
             <div className="form-small" />

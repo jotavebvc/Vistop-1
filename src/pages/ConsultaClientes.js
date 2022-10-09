@@ -279,7 +279,7 @@ export default class CadastroCliente extends React.Component {
                             type="number"
                             variant="outlined"
                             margin='normal'
-                            id="validation-outlined-input"
+                            className="validation-outlined-input"
                         /> */}
               <ValidationTextField
                 label="N° do CNPJ"
@@ -290,7 +290,7 @@ export default class CadastroCliente extends React.Component {
                 type="number"
                 variant="outlined"
                 margin="normal"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
               <ValidationTextField
                 helperText="Data de cadastro"
@@ -301,7 +301,7 @@ export default class CadastroCliente extends React.Component {
                 required
                 variant="outlined"
                 margin="normal"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
             </div>
             <div className="form-small1">
@@ -313,7 +313,7 @@ export default class CadastroCliente extends React.Component {
                 required
                 margin="normal"
                 variant="outlined"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
               <ValidationTextField
                 sx={{ width: "45vh" }}
@@ -323,7 +323,7 @@ export default class CadastroCliente extends React.Component {
                 required
                 margin="normal"
                 variant="outlined"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
             </div>
             <div className="form-small">
@@ -335,7 +335,7 @@ export default class CadastroCliente extends React.Component {
                 required
                 variant="outlined"
                 margin="normal"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
               <ValidationTextField
                 label="Número"
@@ -346,7 +346,7 @@ export default class CadastroCliente extends React.Component {
                 type="number"
                 variant="outlined"
                 margin="normal"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
             </div>
             <div className="form-small1">
@@ -358,7 +358,7 @@ export default class CadastroCliente extends React.Component {
                 required
                 margin="normal"
                 variant="outlined"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
               <ValidationTextField
                 sx={{ width: "45vh" }}
@@ -368,7 +368,7 @@ export default class CadastroCliente extends React.Component {
                 onChange={this.atualizaCEP}
                 margin="normal"
                 variant="outlined"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
             </div>
             <div className="form-small1">
@@ -380,7 +380,7 @@ export default class CadastroCliente extends React.Component {
                 required
                 variant="outlined"
                 margin="normal"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
               <ValidationTextField
                 label="Telefone de contato operacional"
@@ -391,7 +391,7 @@ export default class CadastroCliente extends React.Component {
                 type="number"
                 variant="outlined"
                 margin="normal"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
             </div>
             <div className="form-small">
@@ -403,7 +403,7 @@ export default class CadastroCliente extends React.Component {
                 required
                 variant="outlined"
                 margin="normal"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
               <ValidationTextField
                 label="Telefone de contato financeiro"
@@ -414,7 +414,7 @@ export default class CadastroCliente extends React.Component {
                 type="number"
                 variant="outlined"
                 margin="normal"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
             </div>
             <div className="form-small">
@@ -427,7 +427,7 @@ export default class CadastroCliente extends React.Component {
                 type="date"
                 variant="outlined"
                 margin="normal"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
               <ValidationTextField
                 required
@@ -443,7 +443,7 @@ export default class CadastroCliente extends React.Component {
                   )
                 }}
                 margin="normal"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
             </div>
             <div className="form-small1">
@@ -454,7 +454,7 @@ export default class CadastroCliente extends React.Component {
                 value={this.state.user_id}
                 margin="normal"
                 variant="outlined"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
               <ValidationTextField
                 sx={{ width: "45vh" }}
@@ -462,7 +462,7 @@ export default class CadastroCliente extends React.Component {
                 required
                 margin="normal"
                 variant="outlined"
-                id="validation-outlined-input"
+                className="validation-outlined-input"
               />
             </div>
             <div className="button-enviar1">

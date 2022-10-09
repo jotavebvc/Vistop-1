@@ -1,9 +1,10 @@
 import React from 'react';
 // import { useNavigate } from 'react-router-dom';
 import 'Scss/CadastroFuncionario.scss'
-import { Container, Button, Snackbar } from '@mui/material';
+import { Container, Button } from '@mui/material';
 import 'react-pro-sidebar/dist/css/styles.css';
-import SideBar from '../components/SideBar.js';
+import SideBar from '../components/SideBar';
+import Snackbar from '../components/Snackbar'
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { styled } from '@mui/material/styles';
@@ -26,15 +27,11 @@ const ValidationTextField = styled(TextField)({
 });
 
 const cargo = [
-    { label: "Operador", id: 1},
-    { label: 'Administração', id: 2 },
-    { label: 'Gerência', id: 3 },
+    'Operador', 'Administração', 'Gerência'
 ];
 
 const gender = [
-    { label: 'Masculino', id: 101},
-    { label: 'Feminino', id: 102 },
-    { label: 'Outro', id: 103 },
+    'Masculino', 'Feminino', 'Outro'
 ];
 
 export default class CadastroFuncionario extends React.Component {
@@ -52,11 +49,12 @@ export default class CadastroFuncionario extends React.Component {
             rg: '',
             numero_pis: '',
             titulo_numero: '',
-            genero: '',
-            funçao: '',
+            genero: gender[0],
+            funçao: cargo[0],
             data_vencimento_cnh: '',
             data_vencimento_aso: '',
             email: '',
+            snackMessage: ''
         };
     };
 
@@ -69,17 +67,6 @@ export default class CadastroFuncionario extends React.Component {
         )
     }
 
-    handleClick = () => {
-        this.setState('open', true);
-    };
-
-    handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
-
-        this.setState('open', false)
-    };
     atualizaNomeSocial = (e) => {
         this.setState(
             {
@@ -136,17 +123,17 @@ export default class CadastroFuncionario extends React.Component {
             }
         )
     }
-    atualizaGenero = (e) => {
+    atualizaGenero = (e, newValue) => {
         this.setState(
             {
-                genero: e.target.value
+                genero: newValue
             }
         )
     }
-    atualizaFunçao = (e) => {
+    atualizaFunçao = (e, newValue) => {
         this.setState(
             {
-                funçao: e.target.value
+                funçao: newValue
             }
         )
     }
@@ -210,31 +197,29 @@ export default class CadastroFuncionario extends React.Component {
     }
 
     cadastrarFuncionario = (funcionario) => {
-        fetch(url,
+        fetch(
+            url,
             {
                 method: 'POST',
                 headers: { 'Content-type': 'application/json' },
                 body: JSON.stringify(funcionario)
-            })
-            .then(response => {
-                if (response.ok) {
-                    this.buscarFuncionario();
-                    this.setState('open', true);
-                } else {
-                    alert = ("Não foi possível.")
-                }
-            })
+            }
+        ).then(response => {
+            if (response.ok) {
+                this.buscarFuncionario();
+                this.setState({ open: true, snackMessage: "Sucesso" });
+            } else {
+                this.setState({ open: true, snackMessage: "Opa, deu ruim" });
+            }
+        })
     }
 
     render() {
-
         return (
             <div className='outside'>
                 <Snackbar
                     open={this.state.open}
-                    autoHideDuration={6000}
-                    onClose={this.handleClose}
-                    message="Note archived"
+                    message={this.snackMessage}
                 />
                 <div className='Side-bar' >
                     <SideBar />
@@ -263,7 +248,7 @@ export default class CadastroFuncionario extends React.Component {
                                 value={this.state.nome_social}
                                 margin='normal'
                                 variant="outlined"
-                                id="validation-outlined-input"
+                                className="validation-outlined-input"
                             />
                             <ValidationTextField
                                 sx={{ width: '45vh' }}
@@ -273,7 +258,7 @@ export default class CadastroFuncionario extends React.Component {
                                 onChange={this.atualizaNome}
                                 margin='normal'
                                 variant="outlined"
-                                id="validation-outlined-input"
+                                className="validation-outlined-input"
                             />
                         </div>
                         <div className='form-small'>
@@ -285,7 +270,7 @@ export default class CadastroFuncionario extends React.Component {
                                 type="number"
                                 variant="outlined"
                                 margin='normal'
-                                id="validation-outlined-input"
+                                className="validation-outlined-input"
                             />
                             <ValidationTextField
                                 helperText="Data de nascimento"
@@ -295,7 +280,7 @@ export default class CadastroFuncionario extends React.Component {
                                 // required
                                 variant="outlined"
                                 margin='normal'
-                                id="validation-outlined-input"
+                                className="validation-outlined-input"
                             />
                             <ValidationTextField
                                 helperText="Data de Ingresso"
@@ -305,7 +290,7 @@ export default class CadastroFuncionario extends React.Component {
                                 type="date"
                                 variant="outlined"
                                 margin='normal'
-                                id="validation-outlined-input"
+                                className="validation-outlined-input"
                             />
                             <ValidationTextField
                                 label="Número do PIS"
@@ -315,7 +300,7 @@ export default class CadastroFuncionario extends React.Component {
                                 type="number"
                                 variant="outlined"
                                 margin='normal'
-                                id="validation-outlined-input"
+                                className="validation-outlined-input"
                             />
                         </div>
                         <div className='form-small'>
@@ -327,7 +312,7 @@ export default class CadastroFuncionario extends React.Component {
                                 type="number"
                                 variant="outlined"
                                 margin='normal'
-                                id="validation-outlined-input"
+                                className="validation-outlined-input"
                             />
                             <ValidationTextField
                                 label="CPF"
@@ -339,7 +324,7 @@ export default class CadastroFuncionario extends React.Component {
                                 // InputProps={{
                                 //     inputComponent: TextMaskCustom,
                                 // }}
-                                id="validation-outlined-input"
+                                className="validation-outlined-input"
                             />
 
                             <ValidationTextField
@@ -350,14 +335,13 @@ export default class CadastroFuncionario extends React.Component {
                                 onChange={this.atualizaTituloNumero}
                                 variant="outlined"
                                 margin='normal'
-                                id="validation-outlined-input"
+                                className="validation-outlined-input"
                             />
                         </div>
                         <div className='form-small-function'>
                             <Autocomplete
                                 disablePortal
-                                value={`${this.state.genero}`}
-                                getOptionSelected={(option, value) => option.genero === value.genero}
+                                value={this.state.genero}
                                 onChange={this.atualizaGenero}
                                 id="define-genero"
                                 options={gender}
@@ -385,7 +369,7 @@ export default class CadastroFuncionario extends React.Component {
                                 // required
                                 variant="outlined"
                                 margin='normal'
-                                id="validation-outlined-input"
+                                className="validation-outlined-input"
                             />                        <ValidationTextField
                                 helperText="Data de vencimento ASO"
                                 sx={{ width: '35vh' }}
@@ -395,7 +379,7 @@ export default class CadastroFuncionario extends React.Component {
                                 // required
                                 variant="outlined"
                                 margin='normal'
-                                id="validation-outlined-input"
+                                className="validation-outlined-input"
                             />
                         </div>
                         <div className='form-small-login'>
@@ -406,7 +390,7 @@ export default class CadastroFuncionario extends React.Component {
                                 onChange={this.atualizaUserId}
                                 variant="outlined"
                                 margin='normal'
-                                id="validation-outlined-input"
+                                className="validation-outlined-input"
                             />
                             <ValidationTextField
                                 label="Senha"
@@ -414,7 +398,7 @@ export default class CadastroFuncionario extends React.Component {
                                 // required
                                 variant="outlined"
                                 margin='normal'
-                                id="validation-outlined-input"
+                                className="validation-outlined-input"
                             />
                             <ValidationTextField
                                 label="Email"
@@ -424,7 +408,7 @@ export default class CadastroFuncionario extends React.Component {
                                 // sx={{ width: '28vh' }}
                                 variant="outlined"
                                 margin='normal'
-                                id="validation-outlined-input"
+                                className="validation-outlined-input"
                             />
                         </div>
                         <div className='button-enviar'>
@@ -443,6 +427,3 @@ export default class CadastroFuncionario extends React.Component {
         )
     }
 }
-
-
-

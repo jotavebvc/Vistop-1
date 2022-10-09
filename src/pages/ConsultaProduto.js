@@ -65,7 +65,7 @@ const CadastroProduto = (props) => {
                             required
                             margin='normal'
                             variant="outlined"
-                            id="validation-outlined-input"
+                            className="validation-outlined-input"
                         />
                         <ValidationTextField
                             label="Código do Produto"
@@ -73,7 +73,7 @@ const CadastroProduto = (props) => {
                             type="number"
                             variant="outlined"
                             margin='normal'
-                            id="validation-outlined-input"
+                            className="validation-outlined-input"
                         />
                     </div>
                     <div className='form-small'>
@@ -83,7 +83,7 @@ const CadastroProduto = (props) => {
                             required
                             margin='normal'
                             variant="outlined"
-                            id="validation-outlined-input"
+                            className="validation-outlined-input"
                         />
                         <Autocomplete
                             disablePortal
@@ -101,7 +101,7 @@ const CadastroProduto = (props) => {
                             sx={{ width: '45vh' }}
                             variant="outlined"
                             margin='normal'
-                            id="validation-outlined-input"
+                            className="validation-outlined-input"
                         />
                     <Autocomplete
                             disablePortal
@@ -119,7 +119,7 @@ const CadastroProduto = (props) => {
                             sx={{ width: '45vh' }}
                             variant="outlined"
                             margin='normal'
-                            id="validation-outlined-input"
+                            className="validation-outlined-input"
                         />
                     <Autocomplete
                             disablePortal
@@ -137,7 +137,7 @@ const CadastroProduto = (props) => {
                             sx={{ width: '45vh' }}
                             variant="outlined"
                             margin='normal'
-                            id="validation-outlined-input"
+                            className="validation-outlined-input"
                         />
                     <Autocomplete
                             disablePortal
@@ -156,7 +156,7 @@ const CadastroProduto = (props) => {
                             type="number"
                             variant="outlined"
                             margin='normal'
-                            id="validation-outlined-input"
+                            className="validation-outlined-input"
                         />
                         <ValidationTextField
                             helperText="Validade"
@@ -165,7 +165,7 @@ const CadastroProduto = (props) => {
                             type="date"
                             variant="outlined"
                             margin='normal'
-                            id="validation-outlined-input"
+                            className="validation-outlined-input"
                         />
                     </div>
                     <div className='button-enviar2'>
@@ -175,7 +175,7 @@ const CadastroProduto = (props) => {
                             onClick={goToHomeAdm}
                         >
                             ENVIAR
-                        </Button> */}   
+                        </Button> */}
                     </div>
                 </div>
             </Container>

@@ -84,14 +84,14 @@ const CadastroProduto = (props) => {
                             type="date"
                             variant="outlined"
                             margin='normal'
-                            id="validation-outlined-input"
+                            className="validation-outlined-input"
                         />
                         <ValidationTextField
                             required
                             label="Horário da Vistoria"
                             variant="outlined"
                             margin='normal'
-                            id="validation-outlined-input"
+                            className="validation-outlined-input"
                         />
                     </div>
                     <div className='form-small'>
@@ -101,7 +101,7 @@ const CadastroProduto = (props) => {
                             type="number"
                             variant="outlined"
                             margin='normal'
-                            id="validation-outlined-input"
+                            className="validation-outlined-input"
                         />
                         <ValidationTextField
                             helperText="Vencimento do contrato"
@@ -110,7 +110,7 @@ const CadastroProduto = (props) => {
                             type="date"
                             variant="outlined"
                             margin='normal'
-                            id="validation-outlined-input"
+                            className="validation-outlined-input"
                         />
                     </div>
                     <div className='form-small'>
@@ -128,7 +128,7 @@ const CadastroProduto = (props) => {
                             required
                             variant="outlined"
                             margin='normal'
-                            id="validation-outlined-input"
+                            className="validation-outlined-input"
                         />
                     </div>
                     <div className='button-enviar3'>

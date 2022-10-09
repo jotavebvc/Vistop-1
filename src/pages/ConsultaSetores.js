@@ -82,7 +82,7 @@ const CadastroProduto = (props) => {
                             sx={{ width: '425vh' }}
                             variant="outlined"
                             margin='normal'
-                            id="validation-outlined-input"
+                            className="validation-outlined-input"
                         />
                     </div>
                     <div className='form-small'>
