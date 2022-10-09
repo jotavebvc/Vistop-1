@@ -208,7 +208,7 @@ export default class CadastroFuncionario extends React.Component {
         ).then(response => {
             if (response.ok) {
                 this.buscarFuncionario();
-                this.setState({ open: true, snackMessage: "Sucesso" });
+                this.setState({ open: true, snackMessage: "Sucesso", snackSeverity: "success" });
             } else {
                 this.setState({ open: true, snackMessage: "Opa, deu ruim", snackSeverity: "error" });
             }
