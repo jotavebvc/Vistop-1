@@ -214,12 +214,17 @@ export default class CadastroFuncionario extends React.Component {
         })
     }
 
+    close = () => {
+        this.setState({ open: false })
+    }
+
     render() {
         return (
             <div className='outside'>
                 <Snackbar
                     open={this.state.open}
-                    message={this.snackMessage}
+                    message={this.state.snackMessage}
+                    onClose={this.close}
                 />
                 <div className='Side-bar' >
                     <SideBar />
