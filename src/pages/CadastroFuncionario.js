@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import 'Scss/CadastroFuncionario.scss'
 import { Container, Button, Snackbar } from '@mui/material';
 import 'react-pro-sidebar/dist/css/styles.css';
@@ -26,13 +26,13 @@ const ValidationTextField = styled(TextField)({
 });
 
 const cargo = [
-    { label: "Operador", id: 1 },
+    { label: "Operador", id: 1},
     { label: 'Administração', id: 2 },
     { label: 'Gerência', id: 3 },
 ];
 
 const gender = [
-    { label: 'Masculino', id: 101, },
+    { label: 'Masculino', id: 101},
     { label: 'Feminino', id: 102 },
     { label: 'Outro', id: 103 },
 ];
@@ -42,6 +42,7 @@ export default class CadastroFuncionario extends React.Component {
         super(props);
         this.state = {
             user_id: '',
+            open: false,
             nome: '',
             nome_social: '',
             numero_carteira: '',
@@ -59,9 +60,6 @@ export default class CadastroFuncionario extends React.Component {
         };
     };
 
-    // componentDidMount() {
-    //       this.buscarFuncionario();
-    // }
 
     atualizaNome = (e) => {
         this.setState(
@@ -71,9 +69,17 @@ export default class CadastroFuncionario extends React.Component {
         )
     }
 
-    handleClose = () =>{
-        setOpen(false);
-    }
+    handleClick = () => {
+        this.setState('open', true);
+    };
+
+    handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        this.setState('open', false)
+    };
     atualizaNomeSocial = (e) => {
         this.setState(
             {
@@ -192,7 +198,7 @@ export default class CadastroFuncionario extends React.Component {
             email: this.state.email,
         };
         this.cadastrarFuncionario(funcionario);
-        console.log(this.state.nome)
+        console.log(this.state.nome);
     }
 
     buscarFuncionario = () => {
@@ -213,16 +219,10 @@ export default class CadastroFuncionario extends React.Component {
             .then(response => {
                 if (response.ok) {
                     this.buscarFuncionario();
-                    <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-                        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-                            This is a success message!
-                        </Alert>
-                    </Snackbar>
-
+                    this.setState('open', true);
                 } else {
                     alert = ("Não foi possível.")
                 }
-                //   <DialogTaskSend />
             })
     }
 
@@ -230,6 +230,12 @@ export default class CadastroFuncionario extends React.Component {
 
         return (
             <div className='outside'>
+                <Snackbar
+                    open={this.state.open}
+                    autoHideDuration={6000}
+                    onClose={this.handleClose}
+                    message="Note archived"
+                />
                 <div className='Side-bar' >
                     <SideBar />
                 </div>
@@ -350,7 +356,7 @@ export default class CadastroFuncionario extends React.Component {
                         <div className='form-small-function'>
                             <Autocomplete
                                 disablePortal
-                                value={this.state.genero}
+                                value={`${this.state.genero}`}
                                 getOptionSelected={(option, value) => option.genero === value.genero}
                                 onChange={this.atualizaGenero}
                                 id="define-genero"
@@ -358,18 +364,6 @@ export default class CadastroFuncionario extends React.Component {
                                 sx={{ width: 225 }}
                                 renderInput={(params) => <TextField {...params} label="Gênero" value={this.state.genero} />}
                             />
-                            {/* <FormControl>
-                            <FormLabel id="radio-button-gender">Gênero</FormLabel>
-                            <RadioGroup
-                                aria-labelledby="radio-button-gender-group"
-                                defaultValue="Masculino"
-                                name="radio-buttons-group"
-                            >
-                                <FormControlLabel value="female" control={<Radio />} label="Feminino" />
-                                <FormControlLabel value="male" control={<Radio />} label="Masculino" />
-                                <FormControlLabel value="other" control={<Radio />} label="Outro" />
-                            </RadioGroup>
-                        </FormControl> */}
                             <Autocomplete
                                 //padronizar a cor para a versão 2.0
                                 disablePortal
@@ -449,10 +443,6 @@ export default class CadastroFuncionario extends React.Component {
         )
     }
 }
-
-
-
-// export default CadastroFuncionario;
 
 
 
