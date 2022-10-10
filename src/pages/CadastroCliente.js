@@ -8,7 +8,7 @@ import Snackbar from '../components/Snackbar'
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { styled } from '@mui/material/styles';
-import { serverUrl } from '../settings'
+import { serverUrl } from '../settings' 
 
 const url = `${serverUrl}/clientes/`
 
@@ -242,8 +242,12 @@ export default class CadastroCliente extends React.Component {
                 if (response.ok) {
                     this.buscarCliente();
                 } else {
-                    response.json().then(payload => {
-                        console.log(payload)
+                    response.json().then(body => {
+                        const errors = []
+                        Object.keys(body).forEach(key => {
+                            errors.push(`${key.toString()}: ${body[key].join('.')}`)
+                        })
+                        this.setState({ open: true, snackMessage: errors.join('\n\n'), snackSeverity: "error" });
                     })
                 }
             })
