@@ -172,6 +172,7 @@ atualizaFunçao = (e, newValue) => {
     const funcionario = this.state.funcionarios[nomeFuncionario]
     this.setState({
       nome: funcionario.nome,
+      user_id: funcionario.user_id,
       nome_social: funcionario.nome_social,
       numero_carteira: funcionario.numero_carteira,
       data_nascimento: funcionario.numero_carteira,
