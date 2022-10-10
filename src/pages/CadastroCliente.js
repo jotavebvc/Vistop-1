@@ -4,6 +4,7 @@ import 'Scss/CadastroCliente.scss'
 import { Container, Button, InputAdornment } from '@mui/material';
 import 'react-pro-sidebar/dist/css/styles.css';
 import SideBar from '../components/SideBar.js';
+import Snackbar from '../components/Snackbar'
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { styled } from '@mui/material/styles';
@@ -32,6 +33,7 @@ export default class CadastroCliente extends React.Component {
         this.state = {
             user_id: '',
             nome: '',
+            open: false,
             razao_social: '',
             numero_contrato: '',
             vencimento_contrato: '',
@@ -49,6 +51,8 @@ export default class CadastroCliente extends React.Component {
             email_financeiro: '',
             data_inicio_contrato: '',
             valor_contrato: '',
+            snackMessage: '',
+            snackSeverity: 'info'
         };
     };
 
@@ -186,6 +190,10 @@ export default class CadastroCliente extends React.Component {
         )
     }
 
+    close = () => {
+        this.setState({ open: false })
+    }
+
     submit = () => {
         const cliente = {
             nome: this.state.nome,
@@ -252,6 +260,12 @@ export default class CadastroCliente extends React.Component {
                 <Container style={{
                     backgroundColor: 'white'
                 }}>
+                    <Snackbar
+                        open={this.state.open}
+                        message={this.state.snackMessage}
+                        onClose={this.close}
+                        severity={this.state.snackSeverity}
+                    />
                     <p style={{
                         font: "Lucida Sans",
                         paddingLeft: "7vh",
