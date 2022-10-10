@@ -29,30 +29,6 @@ const ValidationTextField = styled(TextField, Autocomplete)({
 
 
 export default class CadastroCliente extends React.Component {
-  change = () => {
-    const cliente = this.state.cliente[this.state.cliente.length - 1];
-    this.setState({
-      nome: this.state.cliente[this.state.cliente.length - 1].nome,
-      user_id: this.state.cliente[this.state.cliente.length - 1].user_id,
-      razao_social: cliente.razao_social,
-      cep: cliente.cep,
-      numero_cnpj: cliente.numero_cnpj,
-      bairro: cliente.bairro,
-      cidade: cliente.cidade,
-      endereco: cliente.endereco,
-      endereco_numero: cliente.endereco_numero,
-      aliquota_iss: cliente.aliquota_iss,
-      valor_contrato: cliente.valor_contrato,
-      data_inicio_contrato: cliente.data_inicio_contrato,
-      created_on: cliente.created_on,
-      valor_contrato: cliente.valor_contrato,
-      telefone_financeiro: cliente.telefone_financeiro,
-      telefone_operacional: cliente.telefone_operacional,
-      email_financeiro: cliente.email_financeiro,
-      email_operacional: cliente.email_operacional
-    });
-  };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -91,6 +67,31 @@ export default class CadastroCliente extends React.Component {
   componentDidMount() {
     this.buscarCliente();
   }
+
+  change = () => {
+    const cliente = this.state.cliente[this.state.cliente.length - 1];
+    this.setState({
+      nome: this.state.cliente[this.state.cliente.length - 1].nome,
+      user_id: this.state.cliente[this.state.cliente.length - 1].user_id,
+      razao_social: cliente.razao_social,
+      cep: cliente.cep,
+      numero_cnpj: cliente.numero_cnpj,
+      bairro: cliente.bairro,
+      cidade: cliente.cidade,
+      endereco: cliente.endereco,
+      endereco_numero: cliente.endereco_numero,
+      aliquota_iss: cliente.aliquota_iss,
+      valor_contrato: cliente.valor_contrato,
+      data_inicio_contrato: cliente.data_inicio_contrato,
+      created_on: cliente.created_on,
+      valor_contrato: cliente.valor_contrato,
+      telefone_financeiro: cliente.telefone_financeiro,
+      telefone_operacional: cliente.telefone_operacional,
+      email_financeiro: cliente.email_financeiro,
+      email_operacional: cliente.email_operacional
+    });
+  };
+
 
   atualizaNome = e => {
     this.setState({
