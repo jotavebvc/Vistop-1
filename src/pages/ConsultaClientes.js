@@ -57,7 +57,7 @@ export default class CadastroCliente extends React.Component {
     super(props);
     this.state = {
       // payload: [],
-      cliente: [],
+      clientes: [],
       arraySize: "",
       user_id: "",
       nome: "",
@@ -78,6 +78,15 @@ export default class CadastroCliente extends React.Component {
       valor_contrato: ""
     };
   }
+  buscarCliente = () => {
+    fetch(url).then(response => response.json()).then(dados => {
+      const clientesBulk = {}
+      dados.forEach(cliente => {
+        clientesBulk[cliente.nome] = cliente
+      })
+      this.setState({ clientes: clientesBulk });
+    });
+  };
 
   componentDidMount() {
     this.buscarCliente();
@@ -187,15 +196,7 @@ export default class CadastroCliente extends React.Component {
     console.log(this.state.nome);
   };
 
-  buscarCliente = () => {
-    fetch(url).then(response => response.json()).then(dados => {
-      const clienteBulk = {}
-      dados.forEach(cliente => {
-        clienteBulk[cliente.nome] = cliente
-      })
-      this.setState({ cliente: clienteBulk });
-    });
-  };
+
 
   cadastrarCliente = cliente => {
     fetch(url, {
@@ -242,7 +243,7 @@ export default class CadastroCliente extends React.Component {
                 className="autocomplete-periodicidade"
                 disablePortal
                 id="periodicidade-id"
-                options={Object.keys(this.state.cliente)}              
+                options={Object.keys(this.state.cliente)}
                 sx={{ width: 225 }}
                 onChange={this.change}
                 renderInput={params =>
