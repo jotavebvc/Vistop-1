@@ -17,12 +17,12 @@ const Login = props => {
     setLogin(event.target.value);
   };
 
-  const handlePasswordInput = event => {
+  const handlePasswordInput = event => {  
     setPassword(event.target.value);
   };
 
-  const goToHomeOperador = () => {
-    navigate("/home-operador", { replace: true });
+  const goToHomeAdm = () => {
+    navigate("/home-adm", { replace: true });
   };
 
   const handleFormSubmit = async event => {
@@ -42,7 +42,7 @@ const Login = props => {
       }
     );
     if (response.ok) {
-      goToHomeOperador();
+      goToHomeAdm();
     }
   };
 

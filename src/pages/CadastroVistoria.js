@@ -86,25 +86,6 @@ const CadastroProduto = (props) => {
                         />
                     </div>
                     <div className='form-small'>
-                        <ValidationTextField
-                            helperText="N° do contrato"
-                            required
-                            type="number"
-                            variant="outlined"
-                            margin='normal'
-                            className="validation-outlined-input"
-                        />
-                        <ValidationTextField
-                            helperText="Vencimento do contrato"
-                            required
-                            sx={{ width: '23vh' }}
-                            type="date"
-                            variant="outlined"
-                            margin='normal'
-                            className="validation-outlined-input"
-                        />
-                    </div>
-                    <div className='form-small'>
                         <Autocomplete className='autocomplete-periodicidade'
                             disablePortal
                             id="periodicidade-id"
