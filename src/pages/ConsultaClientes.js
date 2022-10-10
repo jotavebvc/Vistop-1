@@ -68,31 +68,6 @@ export default class CadastroCliente extends React.Component {
     this.buscarCliente();
   }
 
-  change = () => {
-    const cliente = this.state.cliente[this.state.cliente.length - 1];
-    this.setState({
-      nome: this.state.cliente[this.state.cliente.length - 1].nome,
-      user_id: this.state.cliente[this.state.cliente.length - 1].user_id,
-      razao_social: cliente.razao_social,
-      cep: cliente.cep,
-      numero_cnpj: cliente.numero_cnpj,
-      bairro: cliente.bairro,
-      cidade: cliente.cidade,
-      endereco: cliente.endereco,
-      endereco_numero: cliente.endereco_numero,
-      aliquota_iss: cliente.aliquota_iss,
-      valor_contrato: cliente.valor_contrato,
-      data_inicio_contrato: cliente.data_inicio_contrato,
-      created_on: cliente.created_on,
-      valor_contrato: cliente.valor_contrato,
-      telefone_financeiro: cliente.telefone_financeiro,
-      telefone_operacional: cliente.telefone_operacional,
-      email_financeiro: cliente.email_financeiro,
-      email_operacional: cliente.email_operacional
-    });
-  };
-
-
   atualizaNome = e => {
     this.setState({
       nome: e.target.value
@@ -173,6 +148,33 @@ export default class CadastroCliente extends React.Component {
       valor_contrato: e.target.value
     });
   };
+
+  change = () => {
+    const cliente = this.state.cliente[this.state.cliente.length - 1];
+    this.setState({
+      nome: this.state.cliente[this.state.cliente.length - 1].nome,
+      user_id: this.state.cliente[this.state.cliente.length - 1].user_id,
+      razao_social: cliente.razao_social,
+      cep: cliente.cep,
+      numero_cnpj: cliente.numero_cnpj,
+      bairro: cliente.bairro,
+      cidade: cliente.cidade,
+      endereco: cliente.endereco,
+      endereco_numero: cliente.endereco_numero,
+      aliquota_iss: cliente.aliquota_iss,
+      valor_contrato: cliente.valor_contrato,
+      data_inicio_contrato: cliente.data_inicio_contrato,
+      created_on: cliente.created_on,
+      valor_contrato: cliente.valor_contrato,
+      telefone_financeiro: cliente.telefone_financeiro,
+      telefone_operacional: cliente.telefone_operacional,
+      email_financeiro: cliente.email_financeiro,
+      email_operacional: cliente.email_operacional
+    });
+  };
+
+
+
 
   submit = () => {
     const cliente = {
