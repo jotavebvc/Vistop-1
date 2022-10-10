@@ -222,7 +222,7 @@ export default class CadastroFuncionario extends React.Component {
                 response.json().then(body => {
                     const errors = []
                     Object.keys(body).forEach(key => {
-                        errors.push(`${key.toString()}: ${body[key].join(',')}`)
+                        errors.push(`${key.toString()}: ${body[key].join('.')}`)
                     })
                     this.setState({ open: true, snackMessage: errors.join('\n\n'), snackSeverity: "error" });
                 })
