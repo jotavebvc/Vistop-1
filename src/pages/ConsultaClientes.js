@@ -187,13 +187,13 @@ export default class CadastroCliente extends React.Component {
     console.log(this.state.nome);
   };
 
-  buscarFuncionario = () => {
+  buscarCliente = () => {
     fetch(url).then(response => response.json()).then(dados => {
-      const funcionariosBulk = {}
-      dados.forEach(funcionario => {
-        funcionariosBulk[funcionario.nome] = funcionario
+      const clienteBulk = {}
+      dados.forEach(cliente => {
+        clienteBulk[cliente.nome] = cliente
       })
-      this.setState({ funcionarios: funcionariosBulk });
+      this.setState({ cliente: clienteBulk });
     });
   };
 
