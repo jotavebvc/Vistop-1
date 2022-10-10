@@ -27,15 +27,11 @@ const ValidationTextField = styled(TextField)({
 });
 
 const cargo = [
-  { label: "Operador", id: "1" },
-  { label: "Administração", id: "2" },
-  { label: "Gerência", id: "3" }
+  'Operador', 'Administração', 'Gerência'
 ];
 
 const gender = [
-  { label: "Masculino", id: "101" },
-  { label: "Feminino", id: "102" },
-  { label: "Outro", id: "103" }
+  'Masculino', 'Feminino', 'Outro'
 ];
 
 const nomeCliente = [
@@ -57,8 +53,8 @@ export default class CadastroFuncionario extends React.Component {
       rg: "",
       numero_pis: "",
       titulo_numero: "",
-      genero: "103",
-      funçao: "1",
+      genero: gender[0],
+      funçao: cargo[0],
       data_vencimento_cnh: "",
       data_vencimento_aso: "",
       email: "",
@@ -115,16 +111,20 @@ export default class CadastroFuncionario extends React.Component {
       titulo_numero: e.target.value
     });
   };
-  atualizaGenero = e => {
-    this.setState({
-      genero: e.target.value
-    });
-  };
-  atualizaFunçao = e => {
-    this.setState({
-      funçao: e.target.value
-    });
-  };
+  atualizaGenero = (e, newValue) => {
+    this.setState(
+        {
+            genero: newValue
+        }
+    )
+}
+atualizaFunçao = (e, newValue) => {
+    this.setState(
+        {
+            funçao: newValue
+        }
+    )
+}
   atualizaDataVencimentoCnh = e => {
     this.setState({
       data_vencimento_cnh: e.target.value
@@ -420,8 +420,8 @@ export default class CadastroFuncionario extends React.Component {
             </div>
             <div className="form-small-login">
               <ValidationTextField
-                // label="Login"
-                defaultValue={"Login"}
+                label="Login"
+                // defaultValue={"Login"}
                 required
                 value={this.state.login}
                 onChange={this.atualizaLogin}
