@@ -26,10 +26,7 @@ const ValidationTextField = styled(TextField, Autocomplete)({
   }
 });
 
-const nomeCliente = [
-  { label: "costumer.userName", id: 1 },
-  { label: "jotavebvc", id: 2 }
-];
+
 
 export default class CadastroCliente extends React.Component {
   change = () => {
@@ -240,13 +237,12 @@ export default class CadastroCliente extends React.Component {
                 className="autocomplete-periodicidade"
                 disablePortal
                 id="periodicidade-id"
-                options={nomeCliente}
-                sx={{ width: 225 }}
+                options={Object.keys(this.state.cliente)}                sx={{ width: 225 }}
                 onChange={this.change}
                 renderInput={params =>
                   <TextField
                     {...params}
-                    label="$get costumer.userName & selected data"
+                    label="Cliente"
                   />}
               />
             </div>
