@@ -57,6 +57,7 @@ export default class CadastroCliente extends React.Component {
     super(props);
     this.state = {
       // payload: [],
+      cliente: [],
       arraySize: "",
       user_id: "",
       nome: "",
@@ -237,7 +238,8 @@ export default class CadastroCliente extends React.Component {
                 className="autocomplete-periodicidade"
                 disablePortal
                 id="periodicidade-id"
-                options={Object.keys(this.state.cliente)}                sx={{ width: 225 }}
+                options={Object.keys(this.state.cliente)}              
+                sx={{ width: 225 }}
                 onChange={this.change}
                 renderInput={params =>
                   <TextField

@@ -434,6 +434,7 @@ export default class CadastroCliente extends React.Component {
                             <ValidationTextField
                                 helperText="N° do contrato"
                                 required
+                                sx={{ width: '45vh' }}
                                 value={this.state.numero_contrato}
                                 onChange={this.atualizaNumeroContrato}
                                 type="number"
@@ -444,9 +445,9 @@ export default class CadastroCliente extends React.Component {
                             <ValidationTextField
                                 helperText="Vencimento do contrato"
                                 required
+                                sx={{ width: '45vh' }}
                                 value={this.state.vencimento_contrato}
                                 onChange={this.atualizaVencimentoContrato}
-                                sx={{ width: '23vh' }}
                                 type="date"
                                 variant="outlined"
                                 margin='normal'
