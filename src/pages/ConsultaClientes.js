@@ -238,7 +238,7 @@ export default class CadastroCliente extends React.Component {
                 className="autocomplete-periodicidade"
                 disablePortal
                 id="periodicidade-id"
-                options={Object.keys(this.state.cliente)}              
+                options={Object.keys(this.state.cliente.nome)}              
                 sx={{ width: 225 }}
                 onChange={this.change}
                 renderInput={params =>
