@@ -222,7 +222,7 @@ export default class CadastroFuncionario extends React.Component {
                 response.json().then(body => {
                     const errors = []
                     Object.keys(body).forEach(key => {
-                        errors.push(`${key.toString()}: ${body[key].split(',')}`)
+                        errors.push(`${key.toString()}: ${body[key].join(',')}`)
                     })
                     this.setState({ open: true, snackMessage: errors.join('\n\n'), snackSeverity: "error" });
                 })
@@ -236,219 +236,221 @@ export default class CadastroFuncionario extends React.Component {
 
     render() {
         return (
-            <div className='outside'>
-                <div className='Side-bar' style={{
-                }}>
-                    <Snackbar
-                        open={this.state.open}
-                        message={this.state.snackMessage}
-                        onClose={this.close}
-                        severity={this.state.snackSeverity}
-                    />
-                    <SideBar />
-                </div>
-                <Container style={{
-                    backgroundColor: 'white'
-                }}>
-                    <p style={{
-                        font: "Lucida Sans",
-                        paddingLeft: "7vh",
-                        fontWeight: 300,
-                        fontSize: 42,
-                        letterSpacing: "3px",
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                        whiteSpace: "nowrap"
-                    }} > Cadastrar funcionário</p>
-                    <div>
-                        <div className='form-small'>
-                            <ValidationTextField
-                                sx={{ width: '45vh' }}
-                                label="Nome social"
-                                helperText="Insira o nome que irá aparecer no sistema para o usuário"
-                                required
-                                onChange={this.atualizaNomeSocial}
-                                value={this.state.nome_social}
-                                margin='normal'
-                                variant="outlined"
-                                className="validation-outlined-input"
-                            />
-                            <ValidationTextField
-                                sx={{ width: '45vh' }}
-                                label="Nome Completo"
-                                required
-                                value={this.state.nome}
-                                onChange={this.atualizaNome}
-                                margin='normal'
-                                variant="outlined"
-                                className="validation-outlined-input"
-                            />
-                        </div>
-                        <div className='form-small'>
-                            <ValidationTextField
-                                label="N° da carteira de trabalho"
-                                required
-                                value={this.state.numero_carteira}
-                                onChange={this.atualizaNumeroCarteira}
-                                type="number"
-                                variant="outlined"
-                                margin='normal'
-                                className="validation-outlined-input"
-                            />
-                            <ValidationTextField
-                                helperText="Data de nascimento"
-                                type="date"
-                                value={this.state.data_nascimento}
-                                onChange={this.atualizaDataNascimento}
-                                required
-                                variant="outlined"
-                                margin='normal'
-                                className="validation-outlined-input"
-                            />
-                            <ValidationTextField
-                                helperText="Data de Ingresso"
-                                // required
-                                value={this.state.data_ingresso}
-                                onChange={this.atualizaDataIngresso}
-                                type="date"
-                                variant="outlined"
-                                margin='normal'
-                                className="validation-outlined-input"
-                            />
-                            <ValidationTextField
-                                label="Número do PIS"
-                                required
-                                value={this.state.numero_pis}
-                                onChange={this.atualizaNumeroPis}
-                                type="number"
-                                variant="outlined"
-                                margin='normal'
-                                className="validation-outlined-input"
-                            />
-                        </div>
-                        <div className='form-small'>
-                            <ValidationTextField
-                                label="RG"
-                                required
-                                value={this.state.rg}
-                                onChange={this.atualizaRg}
-                                type="number"
-                                variant="outlined"
-                                margin='normal'
-                                className="validation-outlined-input"
-                            />
-                            <ValidationTextField
-                                label="CPF"
-                                required
-                                value={this.state.cpf}
-                                onChange={this.atualizaCPF}
-                                variant="outlined"
-                                margin='normal'
-                                // InputProps={{
-                                //     inputComponent: TextMaskCustom,
-                                // }}
-                                className="validation-outlined-input"
-                            />
-
-                            <ValidationTextField
-                                label="N° do Título de Eleitor"
-                                required
-                                type="number"
-                                value={this.state.titulo_numero}
-                                onChange={this.atualizaTituloNumero}
-                                variant="outlined"
-                                margin='normal'
-                                className="validation-outlined-input"
-                            />
-                        </div>
-                        <div className='form-small-function'>
-                            <Autocomplete
-                                disablePortal
-                                value={this.state.genero}
-                                onChange={this.atualizaGenero}
-                                id="define-genero"
-                                options={gender}
-                                sx={{ width: 225 }}
-                                renderInput={(params) => <TextField {...params} label="Gênero" value={this.state.genero} />}
-                            />
-                            <Autocomplete
-                                //padronizar a cor para a versão 2.0
-                                disablePortal
-                                value={this.state.funçao}
-                                onChange={this.atualizaFunçao}
-                                required
-                                id="define-cargo"
-                                options={cargo}
-                                sx={{ width: 225 }}
-                                renderInput={(params) => <TextField {...params} label="Função" />}
-                            />
-                        </div>
-                        <div className='form-small'>
-                            <ValidationTextField
-                                helperText="Data de vencimento CNH"
-                                sx={{ width: '35vh' }}
-                                type="date"
-                                value={this.state.data_vencimento_cnh}
-                                onChange={this.atualizaDataVencimentoCnh}
-                                required
-                                variant="outlined"
-                                margin='normal'
-                                className="validation-outlined-input"
-                            />
-                            <ValidationTextField
-                                helperText="Data de vencimento ASO"
-                                sx={{ width: '35vh' }}
-                                type="date"
-                                value={this.state.data_vencimento_aso}
-                                onChange={this.atualizaDataVencimentoAso}
-                                required
-                                variant="outlined"
-                                margin='normal'
-                                className="validation-outlined-input"
-                            />
-                        </div>
-                        <div className='form-small-login'>
-                            <ValidationTextField
-                                label="Login"
-                                required
-                                value={this.state.user_id}
-                                onChange={this.atualizaUserId}
-                                variant="outlined"
-                                margin='normal'
-                                className="validation-outlined-input"
-                            />
-                            <ValidationTextField
-                                label="Senha"
-                                type="password"
-                                value={this.state.password}
-                                onChange={this.atualizaPassword}
-                                required
-                                variant="outlined"
-                                margin='normal'
-                                className="validation-outlined-input"
-                            />
-                            <ValidationTextField
-                                label="Email"
-                                required
-                                value={this.state.email}
-                                onChange={this.atualizaEmail}
-                                // sx={{ width: '28vh' }}
-                                variant="outlined"
-                                margin='normal'
-                                className="validation-outlined-input"
-                            />
-                        </div>
-                        <div className='button-enviar'>
-                            <Button className='btn-grad-form'
-                                variant="outlined"
-                                onClick={this.submit}
-                            >
-                                ENVIAR
-                            </Button>
-                        </div>
+            <div>
+                <div className='outside'>
+                    <div className='Side-bar' style={{
+                    }}>
+                        <SideBar />
                     </div>
+                    <Container style={{
+                        backgroundColor: 'white'
+                    }}>
+                        <Snackbar
+                            open={this.state.open}
+                            message={this.state.snackMessage}
+                            onClose={this.close}
+                            severity={this.state.snackSeverity}
+                        />
+                        <p style={{
+                            font: "Lucida Sans",
+                            paddingLeft: "7vh",
+                            fontWeight: 300,
+                            fontSize: 42,
+                            letterSpacing: "3px",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                            whiteSpace: "nowrap"
+                        }} > Cadastrar funcionário</p>
+                        <div>
+                            <div className='form-small'>
+                                <ValidationTextField
+                                    sx={{ width: '45vh' }}
+                                    label="Nome social"
+                                    helperText="Insira o nome que irá aparecer no sistema para o usuário"
+                                    required
+                                    onChange={this.atualizaNomeSocial}
+                                    value={this.state.nome_social}
+                                    margin='normal'
+                                    variant="outlined"
+                                    className="validation-outlined-input"
+                                />
+                                <ValidationTextField
+                                    sx={{ width: '45vh' }}
+                                    label="Nome Completo"
+                                    required
+                                    value={this.state.nome}
+                                    onChange={this.atualizaNome}
+                                    margin='normal'
+                                    variant="outlined"
+                                    className="validation-outlined-input"
+                                />
+                            </div>
+                            <div className='form-small'>
+                                <ValidationTextField
+                                    label="N° da carteira de trabalho"
+                                    required
+                                    value={this.state.numero_carteira}
+                                    onChange={this.atualizaNumeroCarteira}
+                                    type="number"
+                                    variant="outlined"
+                                    margin='normal'
+                                    className="validation-outlined-input"
+                                />
+                                <ValidationTextField
+                                    helperText="Data de nascimento"
+                                    type="date"
+                                    value={this.state.data_nascimento}
+                                    onChange={this.atualizaDataNascimento}
+                                    required
+                                    variant="outlined"
+                                    margin='normal'
+                                    className="validation-outlined-input"
+                                />
+                                <ValidationTextField
+                                    helperText="Data de Ingresso"
+                                    // required
+                                    value={this.state.data_ingresso}
+                                    onChange={this.atualizaDataIngresso}
+                                    type="date"
+                                    variant="outlined"
+                                    margin='normal'
+                                    className="validation-outlined-input"
+                                />
+                                <ValidationTextField
+                                    label="Número do PIS"
+                                    required
+                                    value={this.state.numero_pis}
+                                    onChange={this.atualizaNumeroPis}
+                                    type="number"
+                                    variant="outlined"
+                                    margin='normal'
+                                    className="validation-outlined-input"
+                                />
+                            </div>
+                            <div className='form-small'>
+                                <ValidationTextField
+                                    label="RG"
+                                    required
+                                    value={this.state.rg}
+                                    onChange={this.atualizaRg}
+                                    type="number"
+                                    variant="outlined"
+                                    margin='normal'
+                                    className="validation-outlined-input"
+                                />
+                                <ValidationTextField
+                                    label="CPF"
+                                    required
+                                    value={this.state.cpf}
+                                    onChange={this.atualizaCPF}
+                                    variant="outlined"
+                                    margin='normal'
+                                    // InputProps={{
+                                    //     inputComponent: TextMaskCustom,
+                                    // }}
+                                    className="validation-outlined-input"
+                                />
 
-                </Container>
+                                <ValidationTextField
+                                    label="N° do Título de Eleitor"
+                                    required
+                                    type="number"
+                                    value={this.state.titulo_numero}
+                                    onChange={this.atualizaTituloNumero}
+                                    variant="outlined"
+                                    margin='normal'
+                                    className="validation-outlined-input"
+                                />
+                            </div>
+                            <div className='form-small-function'>
+                                <Autocomplete
+                                    disablePortal
+                                    value={this.state.genero}
+                                    onChange={this.atualizaGenero}
+                                    id="define-genero"
+                                    options={gender}
+                                    sx={{ width: 225 }}
+                                    renderInput={(params) => <TextField {...params} label="Gênero" value={this.state.genero} />}
+                                />
+                                <Autocomplete
+                                    //padronizar a cor para a versão 2.0
+                                    disablePortal
+                                    value={this.state.funçao}
+                                    onChange={this.atualizaFunçao}
+                                    required
+                                    id="define-cargo"
+                                    options={cargo}
+                                    sx={{ width: 225 }}
+                                    renderInput={(params) => <TextField {...params} label="Função" />}
+                                />
+                            </div>
+                            <div className='form-small'>
+                                <ValidationTextField
+                                    helperText="Data de vencimento CNH"
+                                    sx={{ width: '35vh' }}
+                                    type="date"
+                                    value={this.state.data_vencimento_cnh}
+                                    onChange={this.atualizaDataVencimentoCnh}
+                                    required
+                                    variant="outlined"
+                                    margin='normal'
+                                    className="validation-outlined-input"
+                                />
+                                <ValidationTextField
+                                    helperText="Data de vencimento ASO"
+                                    sx={{ width: '35vh' }}
+                                    type="date"
+                                    value={this.state.data_vencimento_aso}
+                                    onChange={this.atualizaDataVencimentoAso}
+                                    required
+                                    variant="outlined"
+                                    margin='normal'
+                                    className="validation-outlined-input"
+                                />
+                            </div>
+                            <div className='form-small-login'>
+                                <ValidationTextField
+                                    label="Login"
+                                    required
+                                    value={this.state.user_id}
+                                    onChange={this.atualizaUserId}
+                                    variant="outlined"
+                                    margin='normal'
+                                    className="validation-outlined-input"
+                                />
+                                <ValidationTextField
+                                    label="Senha"
+                                    type="password"
+                                    value={this.state.password}
+                                    onChange={this.atualizaPassword}
+                                    required
+                                    variant="outlined"
+                                    margin='normal'
+                                    className="validation-outlined-input"
+                                />
+                                <ValidationTextField
+                                    label="Email"
+                                    required
+                                    value={this.state.email}
+                                    onChange={this.atualizaEmail}
+                                    // sx={{ width: '28vh' }}
+                                    variant="outlined"
+                                    margin='normal'
+                                    className="validation-outlined-input"
+                                />
+                            </div>
+                            <div className='button-enviar'>
+                                <Button className='btn-grad-form'
+                                    variant="outlined"
+                                    onClick={this.submit}
+                                >
+                                    ENVIAR
+                                </Button>
+                            </div>
+                        </div>
+
+                    </Container>
+                </div>
             </div>
         )
     }
