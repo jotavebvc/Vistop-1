@@ -169,8 +169,8 @@ atualizaFunçao = (e, newValue) => {
   };
 
   change = (e, nomeFuncionario) => {
-    const funcionario = this.state.funcionario[this.state.funcionario.length-1];
-    this.setState({
+    const funcionario = this.state.funcionarios[nomeFuncionario]   
+     this.setState({
       nome: funcionario.nome,
       user_id: funcionario.user_id,
       nome_social: funcionario.nome_social,
