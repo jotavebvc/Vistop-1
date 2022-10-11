@@ -49,7 +49,7 @@ const Login = props => {
   useEffect(() => {
     const loggedIn = Cookies.get("sessionid");
     if (loggedIn) {
-      goToHomeAdm();
+      goToHomeAdmr();
     }
   });
 
