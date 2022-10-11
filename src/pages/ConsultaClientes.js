@@ -152,8 +152,8 @@ export default class CadastroCliente extends React.Component {
   change = (e, nomeCliente) => {
     const cliente = this.state.clientes[nomeCliente];
     this.setState({
-      nome: this.state.cliente[this.state.cliente.length - 1].nome,
-      user_id: this.state.cliente[this.state.cliente.length - 1].user_id,
+      nome: cliente.nome,
+      user_id: cliente.user_id,
       razao_social: cliente.razao_social,
       cep: cliente.cep,
       numero_cnpj: cliente.numero_cnpj,

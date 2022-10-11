@@ -187,9 +187,6 @@ atualizaFunçao = (e, newValue) => {
       data_vencimento_aso: funcionario.data_vencimento_aso,
       email: funcionario.email
     });
-    this.atualizaCPF();
-    this.atualizaDataIngresso();
-    this.atualizaDataNascimento();
   };
 
   buscarFuncionario = () => {
