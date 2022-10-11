@@ -165,7 +165,6 @@ export default class CadastroCliente extends React.Component {
       valor_contrato: cliente.valor_contrato,
       data_inicio_contrato: cliente.data_inicio_contrato,
       created_on: cliente.created_on,
-      valor_contrato: cliente.valor_contrato,
       telefone_financeiro: cliente.telefone_financeiro,
       telefone_operacional: cliente.telefone_operacional,
       email_financeiro: cliente.email_financeiro,
