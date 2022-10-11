@@ -10,16 +10,17 @@ async function fetchApiData () {
   const responseJson = await response.json()
   console.log(responseJson)
 }
-const navigate =useNavigate();
 
-const goToLogin = () => {
-  navigate("/login", { replace: true });
-};
 
 export default class App extends React.Component {
 
+
+  goToLogin = () => {
+    useNavigate("/login", { replace: true });
+  };
+
   componentDidMount = () => {
-      goToLogin;
+      this.goToLogin();
   };
   render () {
     return (
