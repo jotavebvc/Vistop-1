@@ -58,7 +58,7 @@ export default class CadastroFuncionario extends React.Component {
       data_vencimento_cnh: "",
       data_vencimento_aso: "",
       email: "",
-      funcionarios: []
+      // funcionarios: [],
     };
   }
 
@@ -168,7 +168,7 @@ atualizaFunçao = (e, newValue) => {
     console.log(this.state.nome);
   };
 
-  change = (e, funcionarios) => {
+  change = (e, nomeFuncionario) => {
     const funcionario = this.state.funcionario[this.state.funcionario.length-1];
     this.setState({
       nome: funcionario.nome,
