@@ -33,7 +33,7 @@ export default class CadastroCliente extends React.Component {
     super(props);
     this.state = {
       // payload: [],
-      // clientes: [],
+      clientes: [],
       arraySize: "",
       user_id: "",
       nome: "",

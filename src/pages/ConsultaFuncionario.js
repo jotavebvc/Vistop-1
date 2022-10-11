@@ -58,7 +58,7 @@ export default class CadastroFuncionario extends React.Component {
       data_vencimento_cnh: "",
       data_vencimento_aso: "",
       email: "",
-      // funcionarios: [],
+      funcionarios: [],
     };
   }
 
@@ -187,6 +187,9 @@ atualizaFunçao = (e, newValue) => {
       data_vencimento_aso: funcionario.data_vencimento_aso,
       email: funcionario.email
     });
+    this.atualizaCPF();
+    this.atualizaDataIngresso();
+    this.atualizaDataNascimento();
   };
 
   buscarFuncionario = () => {
